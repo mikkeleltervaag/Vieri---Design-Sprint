@@ -165,11 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="filter-options">
                             ${values
                                 .map((v) => {
-                                    const count = PRODUCTS.filter((p) => p[s.key] === v).length
+                                    const productCount = PRODUCTS.filter((p) => p[s.key] === v).length
+                                    const punchoutCount = s.key === "supplier" ? PUNCHOUT_ITEMS.filter((p) => p.supplier === v).length : 0
+                                    const count = productCount + punchoutCount
+                                    const isPunchoutSupplier = s.key === "supplier" && punchoutCount > 0
                                     return `
-                                    <label class="filter-option" data-key="${s.key}" data-value="${v}">
+                                    <label class="filter-option${isPunchoutSupplier ? " filter-option--punchout" : ""}" data-key="${s.key}" data-value="${v}">
                                         <input type="checkbox" />
                                         <span>${v}</span>
+                                        ${isPunchoutSupplier ? '<span class="material-symbols-outlined filter-option__punchout-icon">storefront</span>' : ""}
                                         <span class="filter-option__count">${count}</span>
                                     </label>`
                                 })
@@ -341,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Count products matching this value with all OTHER filters applied
             const tempFilters = { ...filters }
-            const count = PRODUCTS.filter((p) => {
+            const productCount = PRODUCTS.filter((p) => {
                 if (p[key] !== value) return false
                 const q = searchInput.value.toLowerCase().trim()
                 if (q) {
@@ -361,7 +365,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (p.price > tempFilters.priceMax) return false
                 return true
             }).length
-            countEl.textContent = count
+
+            // Count punchout items for supplier filter
+            let punchoutCount = 0
+            if (key === "supplier") {
+                const q = searchInput.value.toLowerCase().trim()
+                punchoutCount = PUNCHOUT_ITEMS.filter((p) => {
+                    if (p.supplier !== value) return false
+                    if (q) {
+                        const match =
+                            p.name.toLowerCase().includes(q) ||
+                            p.description.toLowerCase().includes(q) ||
+                            p.keywords.some((k) => k.includes(q))
+                        if (!match) return false
+                    }
+                    return true
+                }).length
+            }
+
+            countEl.textContent = productCount + punchoutCount
         })
     }
 

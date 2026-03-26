@@ -584,6 +584,16 @@
     font-weight: 400;
 }
 
+.filter-option__punchout-icon {
+    font-size: 0.85rem;
+    color: #c68a00;
+    margin-left: auto;
+}
+
+.filter-option--punchout .filter-option__count {
+    margin-left: 0;
+}
+
 .filter-price {
     display: flex;
     align-items: center;
