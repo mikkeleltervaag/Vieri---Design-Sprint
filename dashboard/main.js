@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }).observe(hero)
 
     initSearch(hero, input)
+
+    // Auto-focus search bar without opening dropdown
+    input.focus()
 })
 
 function initSearch(hero, input) {
@@ -228,9 +231,11 @@ function initSearch(hero, input) {
         dropdown.hidden = true
     }
 
-    input.addEventListener("focus", showDropdown)
+    // Show dropdown on click (not on programmatic focus)
+    input.addEventListener("click", showDropdown)
 
     input.addEventListener("input", () => {
+        showDropdown()
         renderResults(input.value)
     })
 
