@@ -1176,7 +1176,7 @@
 }
 
 .order-help-bar__panel {
-    padding: 0 1rem 1rem;
+    padding: 0.75rem 1rem 1rem;
 }
 
 .order-help-bar__panel[hidden] {
