@@ -67,7 +67,7 @@ function initSearch(hero, input) {
                         <span class="material-symbols-outlined">search_off</span>
                     </div>
                     <p class="no-results__title">Ingen resultater for «${q}»</p>
-                    <p class="no-results__subtitle">Fant du ikke det du lette etter? Prøv en av disse:</p>
+                    <p class="no-results__subtitle">Fant du ikke det du leter etter? Prøv en av disse:</p>
                     <div class="no-results__actions">
                         <a href="../order/?filter=nettbutikk" class="no-results__btn no-results__btn--punchout">
                             <span class="material-symbols-outlined">storefront</span>
