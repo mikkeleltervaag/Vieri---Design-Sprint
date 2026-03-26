@@ -74,6 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getFilteredPunchoutItems() {
         const q = searchInput.value.toLowerCase().trim()
+        const supplierSelected = filters.supplier.size > 0
+
+        // Only show punchout items if query is 3+ chars or their supplier is selected
+        if (q.length < 3 && !supplierSelected && !punchoutOnly) return []
+
         return PUNCHOUT_ITEMS.filter((p) => {
             if (q) {
                 const match =

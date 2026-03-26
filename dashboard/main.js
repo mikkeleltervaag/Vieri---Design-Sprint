@@ -41,15 +41,15 @@ function initSearch(hero, input) {
     function renderResults(query) {
         const q = query.toLowerCase().trim()
 
-        // Search punchout items
-        const punchoutMatches = q
+        // Search punchout items (only show when query is 3+ chars)
+        const punchoutMatches = q.length >= 3
             ? PUNCHOUT_ITEMS.filter(
                   (p) =>
                       p.name.toLowerCase().includes(q) ||
                       p.description.toLowerCase().includes(q) ||
                       p.keywords.some((k) => k.includes(q))
               )
-            : PUNCHOUT_ITEMS
+            : []
 
         // Search regular products
         const productMatches = q
