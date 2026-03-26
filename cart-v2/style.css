@@ -601,7 +601,7 @@
 
 .item-row__meta {
     font-size: 0.72rem;
-    color: #777;
+    color: #666;
     letter-spacing: 0.15px;
 }
 
@@ -679,7 +679,7 @@
 /* Unit price & total */
 .item-row__unit-price {
     font-size: 0.78rem;
-    color: #666;
+    color: #555;
     text-align: center;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
