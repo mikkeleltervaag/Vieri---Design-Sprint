@@ -335,15 +335,15 @@
 
 /* Group container */
 .item-group {
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(7, 67, 75, 0.1);
     border-radius: calc(var(--border-radius) - 0.25rem);
     overflow: hidden;
     margin: 0 0.5rem;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .item-group + .item-group {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
 }
 
 /* Punchout group styling */
@@ -427,9 +427,10 @@
     align-items: center;
     gap: 0.5rem;
     width: 100%;
-    padding: 0.6rem 1rem;
-    background: rgba(255, 255, 255, 0.15);
+    padding: 0.7rem 1rem;
+    background: rgba(7, 67, 75, 0.06);
     border: none;
+    border-bottom: 1.5px solid rgba(7, 67, 75, 0.08);
     cursor: pointer;
     font-family: inherit;
     text-align: left;
@@ -437,7 +438,7 @@
 }
 
 .item-group__header:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(7, 67, 75, 0.1);
 }
 
 .item-group__chevron {
