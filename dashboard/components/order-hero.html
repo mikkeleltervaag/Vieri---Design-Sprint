@@ -33,10 +33,34 @@
         <div class="search-dropdown" hidden>
             <ul class="search-dropdown__results"></ul>
             <div class="search-dropdown__footer">
+                <button class="search-dropdown__help-toggle" id="help-toggle">
+                    <span class="material-symbols-outlined">help_outline</span>
+                    Fant du ikke det du lette etter?
+                </button>
                 <a href="../order/index.html" class="search-dropdown__show-all">
                     <span class="material-symbols-outlined">grid_view</span>
                     Vis alle produkter
                 </a>
+            </div>
+            <div class="search-dropdown__help-panel" id="help-panel" hidden>
+                <div class="search-dropdown__help-actions">
+                    <a href="../order/?filter=nettbutikk" class="no-results__btn no-results__btn--punchout">
+                        <span class="material-symbols-outlined">storefront</span>
+                        Søk i nettbutikker
+                    </a>
+                    <button class="no-results__btn no-results__btn--freetext" onclick="FreetextModal.open()">
+                        <span class="material-symbols-outlined">edit_note</span>
+                        Legg til som fritekst
+                    </button>
+                    <a href="#" class="no-results__btn no-results__btn--agreement" onclick="event.preventDefault()">
+                        <span class="material-symbols-outlined">handshake</span>
+                        Sjekk våre avtaler
+                    </a>
+                    <button class="no-results__btn no-results__btn--request" onclick="alert('Forespørsel sendt! Innkjøpsavdelingen vil vurdere å legge til produktet.')">
+                        <span class="material-symbols-outlined">send</span>
+                        Be om å legge til produkt
+                    </button>
+                </div>
             </div>
             <div class="search-dropdown__cart-bar" hidden>
                 <div class="search-dropdown__cart-bar-inner">

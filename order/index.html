@@ -160,6 +160,45 @@
                     <!-- Products area -->
                     <div class="order-products">
                         <div class="product-grid" data-view="grid"></div>
+                        <div class="order-help-bar" id="order-help-bar">
+                            <button class="order-help-bar__toggle" id="order-help-toggle">
+                                <span class="material-symbols-outlined">help_outline</span>
+                                Fant du ikke det du lette etter?
+                                <span class="material-symbols-outlined order-help-bar__chevron">expand_more</span>
+                            </button>
+                            <div class="order-help-bar__panel" id="order-help-panel" hidden>
+                                <div class="order-help-bar__actions">
+                                    <div class="order-help-bar__option" onclick="togglePunchoutFilter()">
+                                        <span class="material-symbols-outlined order-help-bar__icon order-help-bar__icon--punchout">storefront</span>
+                                        <div>
+                                            <strong>Søk i nettbutikker</strong>
+                                            <p>Produktet kan finnes i en av våre tilknyttede nettbutikker</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-help-bar__option" onclick="FreetextModal.open()">
+                                        <span class="material-symbols-outlined order-help-bar__icon order-help-bar__icon--freetext">edit_note</span>
+                                        <div>
+                                            <strong>Legg til som fritekst</strong>
+                                            <p>Beskriv varen manuelt og legg den til i handlekurven</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-help-bar__option">
+                                        <span class="material-symbols-outlined order-help-bar__icon order-help-bar__icon--agreement">handshake</span>
+                                        <div>
+                                            <strong>Sjekk våre avtaler</strong>
+                                            <p>Bestill fra en eksisterende rammeavtale med leverandør</p>
+                                        </div>
+                                    </div>
+                                    <div class="order-help-bar__option" onclick="alert('Forespørsel sendt! Innkjøpsavdelingen vil vurdere å legge til produktet.')">
+                                        <span class="material-symbols-outlined order-help-bar__icon order-help-bar__icon--request">send</span>
+                                        <div>
+                                            <strong>Be om å legge til produkt</strong>
+                                            <p>Send en forespørsel til innkjøpsavdelingen om å finne en leverandør</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1125,6 +1125,139 @@
     flex-shrink: 0;
 }
 
+/* ── Help bar (bottom of products) ── */
+
+.order-help-bar {
+    grid-column: 1 / -1;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1.5px solid rgba(7, 67, 75, 0.08);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.order-help-bar__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.15s;
+}
+
+.order-help-bar__toggle:hover {
+    color: #333;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.order-help-bar__toggle.active {
+    color: #07434b;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.order-help-bar__toggle > .material-symbols-outlined:first-child {
+    font-size: 1.15rem;
+}
+
+.order-help-bar__chevron {
+    font-size: 1.15rem !important;
+    margin-left: auto;
+    transition: transform 0.2s;
+}
+
+.order-help-bar__toggle.active .order-help-bar__chevron {
+    transform: rotate(180deg);
+}
+
+.order-help-bar__panel {
+    padding: 0 1rem 1rem;
+}
+
+.order-help-bar__panel[hidden] {
+    display: none;
+}
+
+.order-help-bar__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+}
+
+.order-help-bar__option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.875rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1.5px solid rgba(7, 67, 75, 0.08);
+    border-radius: 0.625rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+}
+
+.order-help-bar__option:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(7, 67, 75, 0.15);
+}
+
+.order-help-bar__option strong {
+    font-size: 0.8rem;
+    color: #07434b;
+    display: block;
+    margin-bottom: 0.1rem;
+}
+
+.order-help-bar__option p {
+    font-size: 0.7rem;
+    color: #777;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.order-help-bar__icon {
+    font-size: 1.35rem;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-help-bar__icon--punchout {
+    background: #fdf3e1;
+    color: #7a5500;
+}
+
+.order-help-bar__icon--freetext {
+    background: #f0ecfc;
+    color: #4a3aad;
+}
+
+.order-help-bar__icon--agreement {
+    background: #eef5f4;
+    color: #2d6b5e;
+}
+
+.order-help-bar__icon--request {
+    background: #f0f0f0;
+    color: #777;
+}
+
+@media (max-width: 800px) {
+    .order-help-bar__actions {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ── No results state ── */
 
 .order-no-results {

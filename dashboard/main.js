@@ -23,6 +23,17 @@ function initSearch(hero, input) {
     const resultsList = hero.querySelector(".search-dropdown__results")
     const cartBar = hero.querySelector(".search-dropdown__cart-bar")
     const cartCount = hero.querySelector(".search-dropdown__cart-count")
+    const helpToggle = hero.querySelector("#help-toggle")
+    const helpPanel = hero.querySelector("#help-panel")
+
+    if (helpToggle && helpPanel) {
+        helpToggle.addEventListener("click", (e) => {
+            e.stopPropagation()
+            const isOpen = !helpPanel.hidden
+            helpPanel.hidden = isOpen
+            helpToggle.classList.toggle("active", !isOpen)
+        })
+    }
 
     function renderResults(query) {
         const q = query.toLowerCase().trim()

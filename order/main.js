@@ -36,6 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // ── Build filter sidebar ──
     buildFilters(filtersEl)
 
+    // ── Help bar toggle ──
+    const helpToggle = document.getElementById("order-help-toggle")
+    const helpPanel = document.getElementById("order-help-panel")
+    if (helpToggle && helpPanel) {
+        helpToggle.addEventListener("click", () => {
+            const isOpen = !helpPanel.hidden
+            helpPanel.hidden = isOpen
+            helpToggle.classList.toggle("active", !isOpen)
+        })
+    }
+
     // ── Check URL for punchout filter ──
     if (new URLSearchParams(window.location.search).get("filter") === "nettbutikk") {
         punchoutOnly = true
