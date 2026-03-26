@@ -64,7 +64,9 @@ const Cart = (() => {
         },
 
         getCount() {
-            return read().length + readPunchout().length
+            const regularTotal = read().reduce((sum, i) => sum + (i.quantity || 1), 0)
+            const punchoutTotal = readPunchout().reduce((sum, i) => sum + (i.quantity || 1), 0)
+            return regularTotal + punchoutTotal
         },
 
         getItemQuantity(productId) {
