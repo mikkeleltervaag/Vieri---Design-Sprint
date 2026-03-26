@@ -68,7 +68,7 @@ function initSearch(hero, input) {
                         </button>
                         <a href="#" class="no-results__btn no-results__btn--agreement" onclick="event.preventDefault()">
                             <span class="material-symbols-outlined">handshake</span>
-                            Bestill via avtale
+                            Sjekk våre avtaler
                         </a>
                         <button class="no-results__btn no-results__btn--request" onclick="alert('Forespørsel sendt! Innkjøpsavdelingen vil vurdere å legge til produktet.')">
                             <span class="material-symbols-outlined">send</span>

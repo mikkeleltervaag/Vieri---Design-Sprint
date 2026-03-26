@@ -498,7 +498,7 @@ function renderNoResults(grid, query) {
                 <div class="order-no-results__option">
                     <span class="material-symbols-outlined order-no-results__option-icon order-no-results__option-icon--agreement">handshake</span>
                     <div>
-                        <strong>Bestill via avtale</strong>
+                        <strong>Sjekk våre avtaler</strong>
                         <p>Bestill fra en eksisterende rammeavtale med leverandør</p>
                     </div>
                 </div>
