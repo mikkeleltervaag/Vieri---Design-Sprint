@@ -132,25 +132,69 @@ function initSearch(hero, input) {
             resultsList.appendChild(li)
         }
 
-        // Mark already-added items
+        // Set up add-to-cart buttons with quantity controls
         resultsList.querySelectorAll(".search-result__add-btn").forEach((btn) => {
             const productId = parseInt(btn.dataset.id)
-            if (Cart.getItemQuantity(productId) > 0) {
-                btn.classList.add("search-result__add-btn--added")
-                btn.querySelector(".material-symbols-outlined").textContent = "check"
-            }
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation()
-                if (!btn.classList.contains("search-result__add-btn--added")) {
-                    btn.classList.add("search-result__add-btn--added")
-                    btn.querySelector(".material-symbols-outlined").textContent =
-                        "check"
+            const qty = Cart.getItemQuantity(productId)
+
+            if (qty > 0) {
+                replaceWithQtyControl(btn, productId, qty)
+            } else {
+                btn.addEventListener("click", (e) => {
+                    e.stopPropagation()
                     Cart.addItem(productId, 1)
                     cartCount.textContent = Cart.getCount()
                     cartBar.hidden = false
-                }
-            })
+                    replaceWithQtyControl(btn, productId, 1)
+                })
+            }
         })
+
+        function replaceWithQtyControl(btn, productId, qty) {
+            const control = document.createElement("div")
+            control.className = "search-result__qty-control"
+            control.innerHTML = `
+                <button class="search-result__qty-btn" data-action="decrease">−</button>
+                <span class="search-result__qty-value">${qty}</span>
+                <button class="search-result__qty-btn" data-action="increase">+</button>
+            `
+
+            const valueEl = control.querySelector(".search-result__qty-value")
+
+            control.querySelectorAll(".search-result__qty-btn").forEach((qBtn) => {
+                qBtn.addEventListener("click", (e) => {
+                    e.stopPropagation()
+                    const current = Cart.getItemQuantity(productId)
+                    if (qBtn.dataset.action === "increase") {
+                        Cart.addItem(productId, 1)
+                        valueEl.textContent = current + 1
+                    } else if (current > 1) {
+                        Cart.updateQuantity(productId, current - 1)
+                        valueEl.textContent = current - 1
+                    } else {
+                        Cart.removeItem(productId)
+                        // Replace back with add button
+                        const newBtn = document.createElement("button")
+                        newBtn.className = "search-result__add-btn"
+                        newBtn.dataset.id = productId
+                        newBtn.title = "Legg i handlekurv"
+                        newBtn.innerHTML = '<span class="material-symbols-outlined">add_shopping_cart</span>'
+                        newBtn.addEventListener("click", (ev) => {
+                            ev.stopPropagation()
+                            Cart.addItem(productId, 1)
+                            cartCount.textContent = Cart.getCount()
+                            cartBar.hidden = false
+                            replaceWithQtyControl(newBtn, productId, 1)
+                        })
+                        control.replaceWith(newBtn)
+                    }
+                    cartCount.textContent = Cart.getCount()
+                    if (Cart.getCount() === 0) cartBar.hidden = true
+                })
+            })
+
+            btn.replaceWith(control)
+        }
     }
 
     function showDropdown() {

@@ -429,6 +429,45 @@
     color: #fff;
 }
 
+/* ── Inline quantity control ── */
+
+.search-result__qty-control {
+    display: flex;
+    align-items: center;
+    border: 1.5px solid #07434b;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #fff;
+    height: 36px;
+}
+
+.search-result__qty-btn {
+    width: 30px;
+    height: 100%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #07434b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.1s;
+}
+
+.search-result__qty-btn:hover {
+    background: rgba(7, 67, 75, 0.08);
+}
+
+.search-result__qty-value {
+    min-width: 1.75rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #07434b;
+}
+
 .search-result__add-btn--added:hover {
     background: #0a5a64;
     color: #fff;
