@@ -110,13 +110,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const filtered = punchoutOnly ? [] : getFilteredProducts()
         const total = punchoutFiltered.length + filtered.length
 
+        const helpBar = document.getElementById("order-help-bar")
         if (total === 0 && searchInput.value.trim()) {
             renderNoResults(productGrid, searchInput.value.trim())
+            if (helpBar) helpBar.hidden = true
         } else {
             renderPunchoutCards(productGrid, punchoutFiltered)
             renderProducts(productGrid, filtered, true)
             initQtyControls()
             initAddToCartButtons()
+            if (helpBar) helpBar.hidden = false
         }
 
         if (countEl) {
