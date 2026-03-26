@@ -10,6 +10,11 @@ function togglePunchoutFilter() {
     punchoutOnly = !punchoutOnly
     const btn = document.getElementById("nettbutikk-filter-btn")
     if (btn) btn.classList.toggle("active", punchoutOnly)
+    // Clear search when activating punchout filter
+    if (punchoutOnly) {
+        const searchInput = document.querySelector(".order-search input[type='text']")
+        if (searchInput) searchInput.value = ""
+    }
     if (_filterAndRender) _filterAndRender()
 }
 
