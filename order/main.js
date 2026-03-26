@@ -549,7 +549,7 @@ function renderNoResults(grid, query) {
                     <span class="material-symbols-outlined order-no-results__option-icon order-no-results__option-icon--freetext">edit_note</span>
                     <div>
                         <strong>Legg til som fritekst</strong>
-                        <p>Beskriv varen manuelt og legg den til i handlekurven</p>
+                        <p>Beskriv produktet manuelt og legg det til i handlekurven</p>
                     </div>
                 </div>
                 <div class="order-no-results__option">

@@ -265,8 +265,8 @@ function showSuccessToast() {
         <div class="success-toast__icon">
             <span class="material-symbols-outlined" style="font-size:3rem;color:#4a9e6e">check_circle</span>
         </div>
-        <h3>${count} vare${count > 1 ? "r" : ""} sendt til Vieri</h3>
-        <p>Varene er lagt til i din Vieri-handlekurv og er klar for godkjenning.</p>
+        <h3>${count} produkt${count > 1 ? "er" : ""} sendt til Vieri</h3>
+        <p>Produktene er lagt til i din Vieri-handlekurv og er klar for godkjenning.</p>
         <a href="../../cart-v2/index.html" class="success-toast__btn">
             Gå til handlekurv
             <span class="material-symbols-outlined">arrow_forward</span>

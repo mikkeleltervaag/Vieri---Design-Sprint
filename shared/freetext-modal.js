@@ -67,7 +67,7 @@ const FreetextModal = (() => {
                 </div>
                 <div class="freetext-field">
                     <label for="freetext-desc">Beskrivelse</label>
-                    <textarea id="freetext-desc" rows="3" placeholder="Beskriv varen du ønsker å bestille..." required></textarea>
+                    <textarea id="freetext-desc" rows="3" placeholder="Beskriv produktet du ønsker å bestille..." required></textarea>
                 </div>
                 <div class="freetext-field-row">
                     <div class="freetext-field">
