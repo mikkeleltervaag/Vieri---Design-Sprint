@@ -1272,15 +1272,19 @@
     justify-content: center;
     gap: 0.35rem;
     font-size: 0.8rem;
-    font-weight: 500;
-    color: #5a8f99;
+    font-weight: 600;
+    color: #07434b;
     text-decoration: none;
-    padding: 0.25rem 0;
-    transition: color 0.15s ease;
+    padding: 0.6rem 1rem;
+    border: 2px solid rgba(7, 67, 75, 0.2);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.35);
+    transition: all 0.15s ease;
 }
 
 .sidebar-continue:hover {
-    color: #07434b;
+    background: rgba(255, 255, 255, 0.55);
+    border-color: rgba(7, 67, 75, 0.35);
 }
 
 .sidebar-continue .material-symbols-outlined {
