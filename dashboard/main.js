@@ -124,6 +124,7 @@ function initSearch(hero, input) {
         for (const product of shown) {
             const li = document.createElement("li")
             li.className = "search-result"
+            li.style.cursor = "pointer"
             const icon = CATEGORY_ICONS[product.category] || "inventory_2"
             li.innerHTML = `
                 <div class="search-result__image">
@@ -140,6 +141,11 @@ function initSearch(hero, input) {
                     </button>
                 </div>
             `
+            li.addEventListener("click", (e) => {
+                // Don't navigate if clicking the add/qty controls
+                if (e.target.closest(".search-result__add-btn") || e.target.closest(".search-result__qty-control")) return
+                window.location.href = `../product/?id=${product.id}`
+            })
             resultsList.appendChild(li)
         }
 

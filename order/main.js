@@ -425,9 +425,10 @@ function renderProducts(grid, products, append = false) {
 
         const article = document.createElement("article")
         article.className = "product-card"
+        article.dataset.productId = p.id
         article.innerHTML = `
             <div class="product-card__top-actions">
-                <button title="Produktinfo">
+                <button title="Produktinfo" class="product-card__info-btn">
                     <span class="material-symbols-outlined">info</span>
                 </button>
                 <button title="Favoritt"${favClass}>
@@ -465,6 +466,14 @@ function renderProducts(grid, products, append = false) {
                 </div>
             </div>
         `
+        // Make card clickable (except actions area)
+        article.addEventListener("click", (e) => {
+            if (e.target.closest(".product-card__actions") || e.target.closest(".product-card__top-actions:not(.product-card__info-btn)")) return
+            if (e.target.closest(".qty-control") || e.target.closest(".add-btn")) return
+            window.location.href = `../product/?id=${p.id}`
+        })
+        article.style.cursor = "pointer"
+
         grid.appendChild(article)
     }
 }

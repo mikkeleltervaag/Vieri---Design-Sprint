@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Produkt — Vieri Bestilling</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/products.js" defer></script>
+        <script src="../shared/cart.js" defer></script>
+        <script src="../shared/main.js" defer></script>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+        <div class="nav-overlay" onclick="toggleMenu()"></div>
+        <aside id="nav-slot"></aside>
+        <div class="main-container">
+            <!-- Page header -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__breadcrumb" id="breadcrumb">
+                        <a href="../dashboard/">Hjem</a>
+                        <span class="material-symbols-outlined">chevron_right</span>
+                        <a href="../order/">Bestill</a>
+                        <span class="material-symbols-outlined">chevron_right</span>
+                        <span id="breadcrumb-name">Produkt</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product content -->
+            <div class="product-page" id="product-page">
+                <!-- Rendered by main.js -->
+            </div>
+        </div>
+    </body>
+</html>
