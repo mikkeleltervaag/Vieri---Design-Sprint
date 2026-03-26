@@ -215,6 +215,7 @@ const FreetextModal = (() => {
 
         Cart.addPunchoutItem(item)
         close()
+        window.location.href = "../cart-v2/"
     }
 
     function open() {
