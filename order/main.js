@@ -47,11 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-    // ── Check URL for punchout filter ──
-    if (new URLSearchParams(window.location.search).get("filter") === "nettbutikk") {
+    // ── Check URL params ──
+    const urlParams = new URLSearchParams(window.location.search)
+    if (urlParams.get("filter") === "nettbutikk") {
         punchoutOnly = true
         const btn = document.getElementById("nettbutikk-filter-btn")
         if (btn) btn.classList.add("active")
+    }
+
+    // Pre-fill search from dashboard query
+    const urlQuery = urlParams.get("q")
+    if (urlQuery) {
+        searchInput.value = urlQuery
     }
 
     // ── Initial render ──

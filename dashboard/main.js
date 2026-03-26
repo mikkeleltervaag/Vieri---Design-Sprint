@@ -245,5 +245,22 @@ function initSearch(hero, input) {
             hideDropdown()
             input.blur()
         }
+        if (e.key === "Enter") {
+            e.preventDefault()
+            const q = input.value.trim()
+            const url = q ? `../order/?q=${encodeURIComponent(q)}` : "../order/"
+            window.location.href = url
+        }
     })
+
+    // Update "Vis alle produkter" link with current query
+    const showAllLink = hero.querySelector(".search-dropdown__show-all")
+    if (showAllLink) {
+        input.addEventListener("input", () => {
+            const q = input.value.trim()
+            showAllLink.href = q
+                ? `../order/?q=${encodeURIComponent(q)}`
+                : "../order/index.html"
+        })
+    }
 }
