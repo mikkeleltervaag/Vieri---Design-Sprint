@@ -67,6 +67,36 @@ const PUNCHOUT_ITEMS = [
         keywords: ["blomst", "blomster", "plante", "planter", "dekorasjon", "bukett", "rose", "tulipan", "kontor", "grønt", "interiør", "gave", "flower"],
         isPunchout: true,
     },
+    {
+        id: "punchout-kontorrekvisita-no",
+        name: "Kontorrekvisita.no",
+        supplier: "Kontorrekvisita.no",
+        description: "Kontorrekvisita, penner, papir, arkivering og skrivebordsutstyr",
+        icon: "edit_note",
+        url: "#",
+        keywords: ["kontor", "penn", "penner", "papir", "blekk", "post-it", "notat", "arkiv", "mappe", "mapper", "rekvisita", "skrivebordsartikler", "tape", "lim", "saks", "stiftemaskin"],
+        isPunchout: true,
+    },
+    {
+        id: "punchout-arbeidsklaer24",
+        name: "Arbeidsklær24",
+        supplier: "Arbeidsklær24",
+        description: "Arbeidsklær, verneutstyr og sikkerhetsutstyr for alle bransjer",
+        icon: "checkroom",
+        url: "#",
+        keywords: ["arbeidsklær", "verneutstyr", "hjelm", "vernesko", "sko", "jakke", "bukse", "hansker", "vernebriller", "refleks", "sikkerhet", "arbeidstøy", "overall"],
+        isPunchout: true,
+    },
+    {
+        id: "punchout-renholdseksperten",
+        name: "Renholdseksperten",
+        supplier: "Renholdseksperten",
+        description: "Rengjøringsmidler, hygieneprodukter og renholdsartikler",
+        icon: "cleaning_services",
+        url: "#",
+        keywords: ["rengjøring", "renhold", "såpe", "vaskemiddel", "mopp", "bøtte", "tørkepapir", "toalettpapir", "desinfeksjon", "hygiene", "avfallsposer", "søppelposer", "renholdsartikler"],
+        isPunchout: true,
+    },
 ]
 
 // Combined lookup: find either a regular product or a punchout item
