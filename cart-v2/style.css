@@ -207,8 +207,8 @@
    CHECKOUT SECTIONS — Shared section styling
    ═══════════════════════════════════════════════ */
 .checkout-section {
-    background: rgba(255, 255, 255, 0.18);
-    border: 2px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(7, 67, 75, 0.1);
     border-radius: var(--border-radius);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
