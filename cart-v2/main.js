@@ -228,10 +228,12 @@ function renderCartItems() {
 
 function buildPunchoutItemRow(item) {
     const icon = item.icon || "local_florist"
+    const rowClass = item.isFreetext ? "item-row--freetext" : "item-row--punchout"
+    const iconClass = item.isFreetext ? "item-row__image-icon--freetext" : "item-row__image-icon--punchout"
     return `
-        <div class="item-row item-row--punchout" data-unit-price="${item.price}" data-punchout-id="${item.id}">
+        <div class="item-row ${rowClass}" data-unit-price="${item.price}" data-punchout-id="${item.id}">
             <div class="item-row__product">
-                <div class="item-row__image-icon item-row__image-icon--punchout">
+                <div class="item-row__image-icon ${iconClass}">
                     <span class="material-symbols-outlined">${icon}</span>
                 </div>
                 <div class="item-row__info">

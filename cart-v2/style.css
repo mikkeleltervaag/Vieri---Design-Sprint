@@ -348,7 +348,7 @@
 
 /* Punchout group styling */
 .item-group--punchout {
-    border: 2px solid rgba(245, 166, 35, 0.3);
+    border: 3px solid rgba(245, 166, 35, 0.45);
 }
 
 .item-group__header--punchout {
@@ -375,7 +375,8 @@
 }
 
 .item-row--punchout {
-    border-left: 3px solid rgba(245, 166, 35, 0.4);
+    border-left: 5px solid rgba(245, 166, 35, 0.6);
+    padding-left: calc(1rem - 5px);
 }
 
 .item-row__image-icon--punchout {
@@ -385,7 +386,7 @@
 
 /* Freetext group styling */
 .item-group--freetext {
-    border: 2px solid rgba(108, 92, 231, 0.25);
+    border: 3px solid rgba(108, 92, 231, 0.35);
 }
 
 .item-group__header--freetext {
@@ -397,6 +398,16 @@
 }
 
 .item-group__header--freetext .item-group__icon {
+    color: #6c5ce7;
+}
+
+.item-row--freetext {
+    border-left: 5px solid rgba(108, 92, 231, 0.5);
+    padding-left: calc(1rem - 5px);
+}
+
+.item-row__image-icon--freetext {
+    background: #f0ecfc;
     color: #6c5ce7;
 }
 
@@ -458,8 +469,8 @@
 .item-group__badge {
     font-size: 0.72rem;
     font-weight: 500;
-    color: #5a8f99;
-    background: rgba(7, 67, 75, 0.06);
+    color: #3d6b73;
+    background: rgba(7, 67, 75, 0.08);
     padding: 0.2rem 0.5rem;
     border-radius: 1rem;
 }
@@ -489,10 +500,10 @@
     margin-bottom: 0.125rem;
     font-size: 0.68rem;
     font-weight: 700;
-    color: #5a8f99;
+    color: #3d6b73;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-bottom: 1.5px solid rgba(7, 67, 75, 0.08);
+    border-bottom: 1.5px solid rgba(7, 67, 75, 0.12);
 }
 
 .item-table__head span:nth-child(n+2) {
@@ -590,7 +601,7 @@
 
 .item-row__meta {
     font-size: 0.72rem;
-    color: #999;
+    color: #777;
     letter-spacing: 0.15px;
 }
 
@@ -619,8 +630,8 @@
     align-items: center;
     justify-content: center;
     gap: 0;
-    background: rgba(255, 255, 255, 0.45);
-    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1.5px solid rgba(7, 67, 75, 0.15);
     border-radius: 0.5rem;
     overflow: hidden;
     width: fit-content;
@@ -668,7 +679,7 @@
 /* Unit price & total */
 .item-row__unit-price {
     font-size: 0.78rem;
-    color: #999;
+    color: #666;
     text-align: center;
     white-space: nowrap;
     font-variant-numeric: tabular-nums;
