@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blomsterbutikken</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Top return bar -->
+    <div class="return-bar">
+        <div class="return-bar__inner">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span>Du handler via <strong>Vieri Bestilling</strong></span>
+            <a href="../../dashboard/index.html" class="return-bar__cancel">Avbryt</a>
+        </div>
+    </div>
+
+    <!-- Shop header -->
+    <header class="shop-header">
+        <div class="shop-header__inner">
+            <div class="shop-header__brand">
+                <span class="material-symbols-outlined shop-header__logo">local_florist</span>
+                <h1>Blomsterbutikken</h1>
+            </div>
+            <button class="shop-header__cart" id="cart-toggle">
+                <span class="material-symbols-outlined">shopping_basket</span>
+                <span class="shop-header__cart-badge" id="cart-badge" hidden>0</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="shop-main">
+        <div class="shop-hero">
+            <h2>Friske blomster til kontoret</h2>
+            <p>Bestill blomster, buketter og planter med levering rett til arbeidsplassen.</p>
+        </div>
+
+        <div class="product-list" id="product-list">
+            <!-- Products rendered by JS -->
+        </div>
+    </main>
+
+    <!-- Slide-in cart panel -->
+    <div class="cart-overlay" id="cart-overlay" hidden></div>
+    <aside class="cart-panel" id="cart-panel">
+        <div class="cart-panel__header">
+            <h2>Din handlekurv</h2>
+            <button class="cart-panel__close" id="cart-close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="cart-panel__items" id="cart-items">
+            <div class="cart-panel__empty">
+                <span class="material-symbols-outlined">shopping_basket</span>
+                <p>Handlekurven er tom</p>
+            </div>
+        </div>
+        <div class="cart-panel__footer" id="cart-footer" hidden>
+            <div class="cart-panel__total">
+                <span>Totalt</span>
+                <strong id="cart-total">0,-</strong>
+            </div>
+            <button class="cart-panel__send-btn" id="send-to-vieri">
+                <span class="material-symbols-outlined">send</span>
+                Send til Vieri Bestilling
+            </button>
+            <p class="cart-panel__note">Varene legges til i din Vieri-handlekurv for godkjenning</p>
+        </div>
+    </aside>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Handlekurv — Vieri Bestilling</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/main.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+
+        <div class="nav-overlay" onclick="closeMenu()"></div>
+        <aside id="nav-slot"></aside>
+
+        <div class="main-container">
+            <!-- Page header (full-width bar, matching order page) -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__top">
+                        <h1 class="page-header__title">Handlekurv</h1>
+                        <nav class="page-header__breadcrumb">
+                            <a href="../order/">Bestilling</a>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                            <span>Handlekurv</span>
+                        </nav>
+                    </div>
+
+                    <div class="cart-stepper">
+                        <div class="cart-stepper__step active">
+                            <div class="cart-stepper__number">1</div>
+                            <span class="cart-stepper__label">Handlekurv</span>
+                        </div>
+                        <div class="cart-stepper__line"></div>
+                        <div class="cart-stepper__step">
+                            <div class="cart-stepper__number">2</div>
+                            <span class="cart-stepper__label">Fullfør bestilling</span>
+                        </div>
+                        <div class="cart-stepper__line"></div>
+                        <div class="cart-stepper__step">
+                            <div class="cart-stepper__number">3</div>
+                            <span class="cart-stepper__label">Bekreftelse</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <main class="cart-page">
+                <!-- Action toolbar -->
+                <div class="cart-toolbar">
+                    <div class="cart-toolbar__left">
+                        <button class="cart-toolbar__btn">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            <span>Sett leveringsdato</span>
+                        </button>
+                        <button class="cart-toolbar__btn">
+                            <span class="material-symbols-outlined">sticky_note_2</span>
+                            <span>Vis notater</span>
+                        </button>
+                        <button class="cart-toolbar__btn">
+                            <span class="material-symbols-outlined">playlist_add</span>
+                            <span>Legg til i handleliste</span>
+                        </button>
+                        <button class="cart-toolbar__btn cart-toolbar__btn--danger">
+                            <span class="material-symbols-outlined">remove_shopping_cart</span>
+                            <span>Tøm handlekurv</span>
+                        </button>
+                    </div>
+                    <div class="cart-toolbar__right">
+                        <span class="cart-toolbar__count">4 varer</span>
+                    </div>
+                </div>
+
+                <!-- Cart content -->
+                <div class="cart-content">
+                    <!-- Cart items -->
+                    <div class="cart-items">
+                        <!-- Item 1 -->
+                        <div class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=120&h=120&fit=crop" alt="Kopipapir" />
+                            </div>
+                            <div class="cart-item__details">
+                                <span class="cart-item__supplier">Staples</span>
+                                <h3 class="cart-item__name">Kopipapir A4 80g 500 ark</h3>
+                                <div class="cart-item__meta">
+                                    <span>Art.nr: 1001234</span>
+                                    <span>Pakn: 5 ris/kartong</span>
+                                </div>
+                            </div>
+                            <div class="cart-item__pricing">
+                                <div class="cart-item__qty">
+                                    <button class="qty-btn" data-action="decrease">−</button>
+                                    <input type="number" value="3" min="1" />
+                                    <button class="qty-btn" data-action="increase">+</button>
+                                </div>
+                                <span class="cart-item__unit-price">289,00 / stk</span>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="cart-item__total-price">867,00</span>
+                                <span class="cart-item__vat">ekskl. mva</span>
+                            </div>
+                            <div class="cart-item__actions">
+                                <button class="cart-item__action" title="Notater">
+                                    <span class="material-symbols-outlined">sticky_note_2</span>
+                                </button>
+                                <button class="cart-item__action cart-item__action--delete" title="Fjern">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=120&h=120&fit=crop" alt="Headset" />
+                            </div>
+                            <div class="cart-item__details">
+                                <span class="cart-item__supplier">Dustin</span>
+                                <h3 class="cart-item__name">Jabra Evolve2 75 Headset</h3>
+                                <div class="cart-item__meta">
+                                    <span>Art.nr: 2005678</span>
+                                    <span>Pakn: 1 stk</span>
+                                </div>
+                            </div>
+                            <div class="cart-item__pricing">
+                                <div class="cart-item__qty">
+                                    <button class="qty-btn" data-action="decrease">−</button>
+                                    <input type="number" value="1" min="1" />
+                                    <button class="qty-btn" data-action="increase">+</button>
+                                </div>
+                                <span class="cart-item__unit-price">3 490,00 / stk</span>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="cart-item__total-price">3 490,00</span>
+                                <span class="cart-item__vat">ekskl. mva</span>
+                            </div>
+                            <div class="cart-item__actions">
+                                <button class="cart-item__action" title="Notater">
+                                    <span class="material-symbols-outlined">sticky_note_2</span>
+                                </button>
+                                <button class="cart-item__action cart-item__action--delete" title="Fjern">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1580480055273-228ff5388ef8?w=120&h=120&fit=crop" alt="Kontorstol" />
+                            </div>
+                            <div class="cart-item__details">
+                                <span class="cart-item__supplier">Lyreco</span>
+                                <h3 class="cart-item__name">Kontorstol Ergo Pro</h3>
+                                <div class="cart-item__meta">
+                                    <span>Art.nr: 3009876</span>
+                                    <span>Pakn: 1 stk</span>
+                                </div>
+                            </div>
+                            <div class="cart-item__pricing">
+                                <div class="cart-item__qty">
+                                    <button class="qty-btn" data-action="decrease">−</button>
+                                    <input type="number" value="1" min="1" />
+                                    <button class="qty-btn" data-action="increase">+</button>
+                                </div>
+                                <span class="cart-item__unit-price">4 890,00 / stk</span>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="cart-item__total-price">4 890,00</span>
+                                <span class="cart-item__vat">ekskl. mva</span>
+                            </div>
+                            <div class="cart-item__actions">
+                                <button class="cart-item__action" title="Notater">
+                                    <span class="material-symbols-outlined">sticky_note_2</span>
+                                </button>
+                                <button class="cart-item__action cart-item__action--delete" title="Fjern">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="cart-item">
+                            <div class="cart-item__image">
+                                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=120&h=120&fit=crop" alt="Kulepenn" />
+                            </div>
+                            <div class="cart-item__details">
+                                <span class="cart-item__supplier">Staples</span>
+                                <h3 class="cart-item__name">Kulepenn Pilot G-2 12-pakning</h3>
+                                <div class="cart-item__meta">
+                                    <span>Art.nr: 4001122</span>
+                                    <span>Pakn: 12 stk/pk</span>
+                                </div>
+                            </div>
+                            <div class="cart-item__pricing">
+                                <div class="cart-item__qty">
+                                    <button class="qty-btn" data-action="decrease">−</button>
+                                    <input type="number" value="2" min="1" />
+                                    <button class="qty-btn" data-action="increase">+</button>
+                                </div>
+                                <span class="cart-item__unit-price">149,00 / pk</span>
+                            </div>
+                            <div class="cart-item__total">
+                                <span class="cart-item__total-price">298,00</span>
+                                <span class="cart-item__vat">ekskl. mva</span>
+                            </div>
+                            <div class="cart-item__actions">
+                                <button class="cart-item__action" title="Notater">
+                                    <span class="material-symbols-outlined">sticky_note_2</span>
+                                </button>
+                                <button class="cart-item__action cart-item__action--delete" title="Fjern">
+                                    <span class="material-symbols-outlined">delete</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cost summary sidebar -->
+                    <aside class="cart-summary">
+                        <div class="cart-summary__card card">
+                            <h2>Ordresammendrag</h2>
+
+                            <div class="cart-summary__rows">
+                                <div class="cart-summary__row">
+                                    <span>Subtotal (4 varer)</span>
+                                    <span>9 545,00</span>
+                                </div>
+                                <div class="cart-summary__row">
+                                    <span>Frakt</span>
+                                    <span class="cart-summary__free">Gratis</span>
+                                </div>
+                                <div class="cart-summary__row">
+                                    <span>Mva (25%)</span>
+                                    <span>2 386,25</span>
+                                </div>
+                            </div>
+
+                            <div class="cart-summary__divider"></div>
+
+                            <div class="cart-summary__total">
+                                <span>Totalt</span>
+                                <span>11 931,25</span>
+                            </div>
+                            <p class="cart-summary__vat-note">Inkl. mva</p>
+
+                            <button class="cart-summary__checkout-btn">
+                                <span>Gå til bestilling</span>
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                            </button>
+
+                            <a href="../order/" class="cart-summary__continue">
+                                <span class="material-symbols-outlined">arrow_back</span>
+                                <span>Fortsett å handle</span>
+                            </a>
+                        </div>
+
+                        <div class="cart-summary__delivery card">
+                            <h2>Leveringsinformasjon</h2>
+                            <div class="cart-summary__delivery-row">
+                                <span class="material-symbols-outlined">location_on</span>
+                                <div>
+                                    <strong>Oslo Hovedkontor</strong>
+                                    <p>Storgata 1, 0182 Oslo</p>
+                                </div>
+                            </div>
+                            <div class="cart-summary__delivery-row">
+                                <span class="material-symbols-outlined">calendar_month</span>
+                                <div>
+                                    <strong>Leveringsdato</strong>
+                                    <p>Ikke satt</p>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+/* Shared component styles */
+@import url("components/header.css");
+@import url("components/nav.css");
+
+:root {
+    --spacing: 2rem;
+    --left-panel-size: 300px;
+    --border-radius: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    :root {
+        --spacing: 1.5rem;
+    }
+}
+
+@media (max-width: 800px) {
+    :root {
+        --spacing: 1rem;
+        --border-radius: 1.25rem;
+    }
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    color: #07434b;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: var(--left-panel-size) 1fr;
+    grid-template-rows: 55px 1fr;
+    background: linear-gradient(to bottom right, #a3e1d4, #f6eaf6);
+    background-attachment: fixed;
+    min-height: 100vh;
+
+    > header {
+        grid-column: 1 / -1;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    > aside {
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(5px);
+        border-right: 3px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+    }
+
+    .main-container {
+        container-type: inline-size;
+    }
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 3px solid rgba(255, 255, 255, 0.25);
+    padding: 1rem;
+
+    > h2 {
+        margin: 0;
+        font-size: 1.1rem;
+        padding-bottom: 0.75rem;
+    }
+}
+
+/* Responsive: hide sidebar on tablet and below */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 55px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 90;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.nav-overlay.open {
+    display: block;
+}
+
+body:has(.nav-overlay.open) {
+    overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    body > aside {
+        position: fixed;
+        top: 55px;
+        left: 0;
+        bottom: 0;
+        width: 300px;
+        z-index: 100;
+        overflow-y: auto;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        background: rgba(235, 245, 240, 0.75);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-right: 3px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 4px 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    body > aside.open {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 480px) {
+    body > aside {
+        width: 100%;
+    }
+}

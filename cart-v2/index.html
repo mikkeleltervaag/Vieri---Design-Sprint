@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Handlekurv — Vieri Bestilling</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/products.js" defer></script>
+        <script src="../shared/cart.js" defer></script>
+        <script src="../shared/main.js" defer></script>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+
+        <div class="nav-overlay" onclick="closeMenu()"></div>
+        <aside id="nav-slot"></aside>
+
+        <div class="main-container">
+            <!-- Page header -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__top">
+                        <h1 class="page-header__title">Bestillingsarbeidsflate</h1>
+                        <nav class="page-header__breadcrumb">
+                            <a href="../order/">Bestilling</a>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                            <span>Handlekurv</span>
+                        </nav>
+                    </div>
+                    <div class="checkout-toolbar">
+                        <div class="checkout-toolbar__left">
+                            <button class="checkout-toolbar__btn">
+                                <span class="material-symbols-outlined">playlist_add</span>
+                                <span>Legg til i handleliste</span>
+                            </button>
+                            <button class="checkout-toolbar__btn checkout-toolbar__btn--danger" id="clear-cart-btn">
+                                <span class="material-symbols-outlined">remove_shopping_cart</span>
+                                <span>Tøm handlekurv</span>
+                            </button>
+                        </div>
+                        <div class="checkout-toolbar__right">
+                            <span class="checkout-toolbar__autosave">
+                                <span class="material-symbols-outlined">cloud_done</span>
+                                Automatisk lagret
+                            </span>
+                            <span class="checkout-toolbar__count">12 varer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <main class="checkout-page">
+                <!-- ════ LEFT: Main content ════ -->
+                <div class="checkout-main">
+                    <!-- Section nav (scroll spy) -->
+                    <nav class="section-nav" id="section-nav">
+                        <a href="#section-defaults" class="section-nav__link active" data-section="section-defaults">
+                            <span class="material-symbols-outlined">tune</span>
+                            Standardverdier
+                        </a>
+                        <a href="#section-items" class="section-nav__link" data-section="section-items">
+                            <span class="material-symbols-outlined">inventory_2</span>
+                            Varer
+                        </a>
+                        <a href="#section-logistics" class="section-nav__link" data-section="section-logistics">
+                            <span class="material-symbols-outlined">local_shipping</span>
+                            Levering
+                        </a>
+                        <a href="#section-approval" class="section-nav__link" data-section="section-approval">
+                            <span class="material-symbols-outlined">approval</span>
+                            Godkjenning
+                        </a>
+                    </nav>
+
+                    <!-- ── A. Order Defaults ── -->
+                    <section class="checkout-section" id="section-defaults">
+                        <div class="checkout-section__header">
+                            <h2>
+                                <span class="material-symbols-outlined">tune</span>
+                                Standardverdier for bestillingen
+                            </h2>
+                            <span class="checkout-section__hint">Alle varer arver disse med mindre de overstyres</span>
+                        </div>
+                        <div class="defaults-grid">
+                            <div class="default-field">
+                                <label>
+                                    <span class="material-symbols-outlined">calendar_month</span>
+                                    Standard leveringsdato
+                                </label>
+                                <div class="default-field__input-wrap">
+                                    <input type="date" value="2026-03-24" />
+                                </div>
+                            </div>
+                            <div class="default-field">
+                                <label>
+                                    <span class="material-symbols-outlined">location_on</span>
+                                    Standard leveringsadresse
+                                </label>
+                                <div class="default-field__input-wrap">
+                                    <select>
+                                        <option selected>Oslo Hovedkontor — Storgata 1, 0182 Oslo</option>
+                                        <option>Bergen Avdeling — Bryggen 12, 5003 Bergen</option>
+                                        <option>Trondheim Lager — Industrivegen 5, 7037 Trondheim</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="default-field">
+                                <label>
+                                    <span class="material-symbols-outlined">person</span>
+                                    Varemottaker
+                                </label>
+                                <div class="default-field__input-wrap">
+                                    <input type="text" value="Mikkel Eltervåg" placeholder="Navn på mottaker" />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── B. Items Section ── -->
+                    <section class="checkout-section" id="section-items">
+                        <div class="checkout-section__header">
+                            <h2>
+                                <span class="material-symbols-outlined">inventory_2</span>
+                                Varer
+                            </h2>
+                            <span class="checkout-section__count"></span>
+                        </div>
+
+                        <div id="cart-items-container"></div>
+                    </section>
+
+                    <!-- ── C. Logistics Section ── -->
+                    <section class="checkout-section checkout-section--collapsible" id="section-logistics">
+                        <button class="checkout-section__header checkout-section__toggle" aria-expanded="true">
+                            <h2>
+                                <span class="material-symbols-outlined">local_shipping</span>
+                                Levering og logistikk
+                            </h2>
+                            <span class="checkout-section__chevron material-symbols-outlined">expand_more</span>
+                        </button>
+                        <div class="checkout-section__body">
+                            <div class="logistics-grid">
+                                <div class="logistics-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">location_on</span>
+                                        Leveringsadresse
+                                    </label>
+                                    <select>
+                                        <option selected>Oslo Hovedkontor — Storgata 1, 0182 Oslo</option>
+                                        <option>Bergen Avdeling — Bryggen 12, 5003 Bergen</option>
+                                        <option>Trondheim Lager — Industrivegen 5, 7037 Trondheim</option>
+                                    </select>
+                                </div>
+                                <div class="logistics-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">calendar_month</span>
+                                        Ønsket leveringsdato
+                                    </label>
+                                    <input type="date" value="2026-03-24" />
+                                </div>
+                                <div class="logistics-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">person</span>
+                                        Varemottaker
+                                    </label>
+                                    <input type="text" value="Mikkel Eltervåg" />
+                                </div>
+                                <div class="logistics-field logistics-field--full">
+                                    <label>
+                                        <span class="material-symbols-outlined">sticky_note_2</span>
+                                        Leveringsnotat
+                                    </label>
+                                    <textarea rows="2" placeholder="Spesielle instruksjoner for levering...">Ring ved ankomst. Leveres til varemottak bak bygget.</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ── D. Approval & Communication ── -->
+                    <section class="checkout-section checkout-section--collapsible" id="section-approval">
+                        <button class="checkout-section__header checkout-section__toggle" aria-expanded="true">
+                            <h2>
+                                <span class="material-symbols-outlined">approval</span>
+                                Godkjenning og kommunikasjon
+                            </h2>
+                            <span class="checkout-section__chevron material-symbols-outlined">expand_more</span>
+                        </button>
+                        <div class="checkout-section__body">
+                            <div class="approval-grid">
+                                <div class="approval-field" id="approver-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">supervisor_account</span>
+                                        Godkjenner
+                                    </label>
+                                    <select id="approver-select">
+                                        <option value="">Velg godkjenner...</option>
+                                        <option>Kari Nordmann — Innkjøpssjef</option>
+                                        <option>Ola Hansen — Avdelingsleder</option>
+                                        <option>Lise Berg — Økonomiansvarlig</option>
+                                    </select>
+                                </div>
+                                <div class="approval-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">chat</span>
+                                        Melding til godkjenner
+                                    </label>
+                                    <textarea rows="2" placeholder="Valgfri melding til godkjenner..."></textarea>
+                                </div>
+                                <div class="approval-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">mail</span>
+                                        Melding til leverandør
+                                    </label>
+                                    <textarea rows="2" placeholder="Valgfri melding til leverandør..."></textarea>
+                                </div>
+                                <div class="approval-field">
+                                    <label>
+                                        <span class="material-symbols-outlined">attach_file</span>
+                                        Vedlegg
+                                    </label>
+                                    <div class="attachment-zone">
+                                        <span class="material-symbols-outlined">cloud_upload</span>
+                                        <span>Dra filer hit eller <a href="#">velg filer</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ════ RIGHT: Sticky sidebar ════ -->
+                <aside class="order-sidebar" id="order-sidebar">
+                    <!-- Summary card -->
+                    <div class="sidebar-card card">
+                        <h2>Ordresammendrag</h2>
+                        <div class="sidebar-summary__rows">
+                            <div class="sidebar-summary__row">
+                                <span>Subtotal (<span id="sidebar-item-count">12</span> varer)</span>
+                                <span id="sidebar-subtotal">26 537,00</span>
+                            </div>
+                            <div class="sidebar-summary__row">
+                                <span>Frakt</span>
+                                <span class="sidebar-summary__free">Gratis</span>
+                            </div>
+                            <div class="sidebar-summary__row">
+                                <span>Mva (25%)</span>
+                                <span id="sidebar-vat">6 634,25</span>
+                            </div>
+                        </div>
+                        <div class="sidebar-summary__divider"></div>
+                        <div class="sidebar-summary__total">
+                            <span>Totalt</span>
+                            <span id="sidebar-total">33 171,25</span>
+                        </div>
+                        <p class="sidebar-summary__note">Inkl. mva</p>
+                    </div>
+
+                    <!-- Validation checklist -->
+                    <div class="sidebar-card card" id="validation-card">
+                        <h2>Sjekkliste</h2>
+                        <ul class="validation-list">
+                            <li class="validation-item validation-item--ok" data-target="section-defaults">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Leveringsadresse satt</span>
+                            </li>
+                            <li class="validation-item validation-item--ok" data-target="section-defaults">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                <span>Leveringsdato satt</span>
+                            </li>
+                            <li class="validation-item validation-item--error" data-target="section-approval">
+                                <span class="material-symbols-outlined">cancel</span>
+                                <span>Godkjenner ikke valgt</span>
+                            </li>
+                            <li class="validation-item validation-item--warn" data-target="section-items">
+                                <span class="material-symbols-outlined">warning</span>
+                                <span>2 varer ikke prisoptimalisert</span>
+                            </li>
+                            <li class="validation-item validation-item--error" data-target="section-items">
+                                <span class="material-symbols-outlined">cancel</span>
+                                <span>1 vare mangler pris</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Delivery info -->
+                    <div class="sidebar-card card">
+                        <h2>Leveringsdetaljer</h2>
+                        <div class="sidebar-delivery-row">
+                            <span class="material-symbols-outlined">location_on</span>
+                            <div>
+                                <strong>Oslo Hovedkontor</strong>
+                                <p>Storgata 1, 0182 Oslo</p>
+                            </div>
+                        </div>
+                        <div class="sidebar-delivery-row">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            <div>
+                                <strong>Leveringsdato</strong>
+                                <p>24. mars 2026</p>
+                            </div>
+                        </div>
+                        <div class="sidebar-delivery-row">
+                            <span class="material-symbols-outlined">person</span>
+                            <div>
+                                <strong>Varemottaker</strong>
+                                <p>Mikkel Eltervåg</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <button class="sidebar-submit-btn" id="submit-order-btn">
+                        <span class="material-symbols-outlined">send</span>
+                        <span>Send bestilling</span>
+                    </button>
+                    <a href="../order/" class="sidebar-continue">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                        <span>Fortsett å handle</span>
+                    </a>
+                </aside>
+            </main>
+        </div>
+
+        <!-- ════ Success overlay ════ -->
+        <div class="success-overlay" id="success-overlay" hidden>
+            <div class="success-dialog">
+                <div class="success-dialog__icon">
+                    <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <h2>Bestillingen er sendt!</h2>
+                <p class="success-dialog__order-nr">Ordrenummer: <strong>ORD-2026-04871</strong></p>
+                <p class="success-dialog__info">En bekreftelse er sendt til din e-post. Godkjenner vil bli varslet.</p>
+                <div class="success-dialog__actions">
+                    <a href="#" class="success-dialog__btn success-dialog__btn--primary">
+                        <span class="material-symbols-outlined">visibility</span>
+                        Se bestilling
+                    </a>
+                    <a href="#" class="success-dialog__btn">
+                        <span class="material-symbols-outlined">download</span>
+                        Last ned PDF
+                    </a>
+                    <a href="../order/" class="success-dialog__btn">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        Ny bestilling
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

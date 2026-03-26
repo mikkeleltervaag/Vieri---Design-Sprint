@@ -1,0 +1,123 @@
+.your-tasks {
+    .tasks__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .tasks-icon {
+            color: #07434b;
+            font-size: 1.5rem;
+        }
+    }
+
+    .tasks__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .tasks__item {
+        border-radius: 0.75rem;
+        background: rgba(255, 255, 255, 0.35);
+        border-left: 3px solid transparent;
+        transition: background 0.15s ease;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.55);
+        }
+    }
+
+    .tasks__link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.5rem 0.875rem 0.5rem 0.5rem;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+
+    .tasks__item--approval .tasks__icon {
+        background: rgba(245, 166, 35, 0.15);
+    }
+    .tasks__item--approval .tasks__type {
+        background: rgba(245, 166, 35, 0.15);
+        color: #c47f00;
+    }
+
+    .tasks__item--requisition .tasks__icon {
+        background: rgba(59, 130, 246, 0.12);
+    }
+
+    .tasks__item--requisition .tasks__type {
+        background: rgba(59, 130, 246, 0.12);
+        color: #3b82c6;
+    }
+
+    .tasks__item--delivery .tasks__icon {
+        background: rgba(52, 199, 89, 0.15);
+    }
+    .tasks__item--delivery .tasks__type {
+        background: rgba(52, 199, 89, 0.15);
+        color: #22a045;
+    }
+
+    .tasks__icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #555;
+
+        .material-symbols-outlined {
+            font-size: 1.25rem;
+        }
+    }
+
+    .tasks__content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .tasks__title {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: #222;
+        display: block;
+    }
+
+    .tasks__desc {
+        margin: 0.125rem 0 0;
+        font-size: 0.75rem;
+        color: #666;
+    }
+
+    .tasks__right {
+        text-align: right;
+        flex-shrink: 0;
+    }
+
+    .tasks__date {
+        display: block;
+        font-size: 0.75rem;
+        color: #888;
+        margin-bottom: 0.25rem;
+    }
+
+    .tasks__type {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        padding: 0.2rem 0.5rem;
+        border-radius: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+}

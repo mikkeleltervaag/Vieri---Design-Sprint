@@ -1,0 +1,55 @@
+<div class="order-hero__content">
+    <div class="order-hero__top">
+        <h1>Hva trenger du i dag?</h1>
+        <div class="order-hero__shortcuts">
+            <a href="#" class="order-hero__shortcut order-hero__shortcut--favorites">
+                <span class="material-symbols-outlined">star</span>
+                Favoritter
+            </a>
+            <a href="#" class="order-hero__shortcut order-hero__shortcut--recent">
+                <span class="material-symbols-outlined">receipt_long</span>
+                Nylige ordrer
+            </a>
+            <a href="../order/?filter=nettbutikk" class="order-hero__shortcut order-hero__shortcut--punchout">
+                <span class="material-symbols-outlined">storefront</span>
+                Nettbutikk
+            </a>
+            <a href="#" class="order-hero__shortcut order-hero__shortcut--freetext" onclick="event.preventDefault(); FreetextModal.open()">
+                <span class="material-symbols-outlined">edit_note</span>
+                Fritekst
+            </a>
+        </div>
+    </div>
+
+    <div class="order-hero__search">
+        <span class="material-symbols-outlined">search</span>
+        <input
+            type="text"
+            placeholder="Søk etter produkter, leverandører eller ordrenummer..."
+            autocomplete="off"
+        />
+        <button class="order-hero__search-btn">Søk</button>
+
+        <div class="search-dropdown" hidden>
+            <ul class="search-dropdown__results"></ul>
+            <div class="search-dropdown__footer">
+                <a href="../order/index.html" class="search-dropdown__show-all">
+                    <span class="material-symbols-outlined">grid_view</span>
+                    Vis alle produkter
+                </a>
+            </div>
+            <div class="search-dropdown__cart-bar" hidden>
+                <div class="search-dropdown__cart-bar-inner">
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span>
+                        <strong class="search-dropdown__cart-count">0</strong> varer lagt til i handlekurven
+                    </span>
+                </div>
+                <a href="../cart-v2/index.html" class="search-dropdown__cart-btn">
+                    Gå til handlekurv
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

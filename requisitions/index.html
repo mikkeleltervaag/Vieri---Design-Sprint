@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vieri Bestilling - Rekvisisjoner</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/main.js" defer></script>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+        <div class="nav-overlay" onclick="toggleMenu()"></div>
+        <aside id="nav-slot"></aside>
+        <div class="main-container">
+            <!-- Page header panel -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__top">
+                        <div class="page-header__title-row">
+                            <div>
+                                <h1 class="page-header__title">
+                                    Rekvisisjoner
+                                </h1>
+                                <nav class="page-header__breadcrumb">
+                                    <a href="../index.html">Hjem</a>
+                                    <span class="material-symbols-outlined"
+                                        >chevron_right</span
+                                    >
+                                    <span>Rekvisisjoner</span>
+                                </nav>
+                            </div>
+                            <button class="req-primary-btn" id="btn-new-req">
+                                <span class="material-symbols-outlined"
+                                    >add</span
+                                >
+                                <span>Ny rekvisisjon</span>
+                            </button>
+                        </div>
+                    </div>
+                    <nav class="req-tabs" id="req-tabs">
+                        <a class="req-tab active" data-tab="oversikt"
+                            >Oversikt</a
+                        >
+                        <a class="req-tab" data-tab="handling"
+                            >Krever handling</a
+                        >
+                        <a class="req-tab" data-tab="mine">Mine</a>
+                        <a class="req-tab" data-tab="arkiv">Arkiv</a>
+                        <a class="req-tab" data-tab="alle">Alle</a>
+                    </nav>
+                </div>
+            </div>
+
+            <main class="req-page">
+                <!-- Toolbar -->
+                <div class="req-toolbar">
+                    <div class="req-toolbar__left">
+                        <div class="req-search">
+                            <span class="material-symbols-outlined"
+                                >search</span
+                            >
+                            <input
+                                type="text"
+                                placeholder="Søk i rekvisisjoner..."
+                                id="req-search"
+                            />
+                        </div>
+                        <button class="req-toolbar__btn" id="btn-filters">
+                            <span class="material-symbols-outlined"
+                                >filter_list</span
+                            >
+                            <span>Filtre</span>
+                        </button>
+                        <div class="req-toolbar__chips" id="filter-chips">
+                            <span class="req-chip">
+                                Status: Åpen
+                                <button
+                                    class="req-chip__remove"
+                                    data-chip="status"
+                                >
+                                    <span class="material-symbols-outlined"
+                                        >close</span
+                                    >
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="req-toolbar__right">
+<button class="req-toolbar__btn" id="btn-columns">
+                            <span class="material-symbols-outlined"
+                                >view_column</span
+                            >
+                            <span>Kolonner</span>
+                        </button>
+                        <button class="req-toolbar__btn" id="btn-density">
+                            <span class="material-symbols-outlined"
+                                >density_medium</span
+                            >
+                            <span>Tetthet</span>
+                        </button>
+                        <button class="req-toolbar__btn" id="btn-export">
+                            <span class="material-symbols-outlined"
+                                >download</span
+                            >
+                            <span>Eksporter</span>
+                        </button>
+                        <span class="req-toolbar__divider"></span>
+                        <button class="req-toolbar__btn req-toolbar__btn--icon" id="btn-expand-full" title="Utvid til fullbredde">
+                            <span class="material-symbols-outlined"
+                                >width_full</span
+                            >
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Batch action bar -->
+                <div class="req-batch" id="batch-bar" hidden>
+                    <div class="req-batch__left">
+                        <label class="req-batch__select-all">
+                            <input
+                                type="checkbox"
+                                id="batch-select-all"
+                            />
+                            <span id="batch-count">0 valgt</span>
+                        </label>
+                    </div>
+                    <div class="req-batch__actions">
+                        <button class="req-batch__btn">
+                            <span class="material-symbols-outlined"
+                                >send</span
+                            >
+                            <span>Send til godkjenning</span>
+                        </button>
+                        <button class="req-batch__btn">
+                            <span class="material-symbols-outlined"
+                                >swap_horiz</span
+                            >
+                            <span>Endre status</span>
+                        </button>
+                        <button class="req-batch__btn">
+                            <span class="material-symbols-outlined"
+                                >download</span
+                            >
+                            <span>Eksporter</span>
+                        </button>
+                        <button class="req-batch__btn">
+                            <span class="material-symbols-outlined"
+                                >inventory_2</span
+                            >
+                            <span>Arkiver</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Content area: table + preview -->
+                <div class="req-content" id="req-content">
+                    <!-- Worklist table -->
+                    <div class="req-table-wrap">
+                        <table class="req-table" id="req-table">
+                            <thead>
+                                <tr>
+                                    <th class="req-table__check">
+                                        <input
+                                            type="checkbox"
+                                            id="select-all"
+                                        />
+                                    </th>
+                                    <th>
+                                        <button
+                                            class="req-sort-btn active"
+                                            data-sort="id"
+                                        >
+                                            Rekvisisjon
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >arrow_upward</span
+                                            >
+                                        </button>
+                                    </th>
+                                    <th>
+                                        <button
+                                            class="req-sort-btn"
+                                            data-sort="status"
+                                        >
+                                            Status
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >unfold_more</span
+                                            >
+                                        </button>
+                                    </th>
+                                    <th
+                                        class="req-col-optional"
+                                        data-col="lokasjon"
+                                    >
+                                        <button
+                                            class="req-sort-btn"
+                                            data-sort="location"
+                                        >
+                                            Lokasjon
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >unfold_more</span
+                                            >
+                                        </button>
+                                    </th>
+                                    <th>
+                                        <button
+                                            class="req-sort-btn"
+                                            data-sort="requester"
+                                        >
+                                            Rekvirent
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >unfold_more</span
+                                            >
+                                        </button>
+                                    </th>
+                                    <th
+                                        class="req-col-optional"
+                                        data-col="godkjenning"
+                                    >
+                                        <button
+                                            class="req-sort-btn"
+                                            data-sort="approval"
+                                        >
+                                            Godkjenning
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >unfold_more</span
+                                            >
+                                        </button>
+                                    </th>
+                                    <th>
+                                        <button
+                                            class="req-sort-btn"
+                                            data-sort="updated"
+                                        >
+                                            Oppdatert
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >unfold_more</span
+                                            >
+                                        </button>
+                                    </th>
+                                    <th>
+                                        <button
+                                            class="req-sort-btn"
+                                            data-sort="amount"
+                                        >
+                                            Beløp
+                                            <span
+                                                class="material-symbols-outlined sort-icon"
+                                                >unfold_more</span
+                                            >
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="req-tbody"></tbody>
+                        </table>
+                    </div>
+
+                    <!-- Preview panel -->
+                    <aside class="req-preview" id="req-preview">
+                        <div class="req-preview__empty" id="preview-empty">
+                            <button
+                                class="req-preview__close"
+                                id="preview-collapse"
+                                title="Skjul panel"
+                            >
+                                <span class="material-symbols-outlined"
+                                    >right_panel_close</span
+                                >
+                            </button>
+                            <span class="material-symbols-outlined"
+                                >description</span
+                            >
+                            <h3>Velg en rekvisisjon</h3>
+                            <p>Velg en rad i listen for å se detaljer og tilgjengelige handlinger.</p>
+                        </div>
+                        <div
+                            class="req-preview__content"
+                            id="preview-content"
+                            hidden
+                        >
+                            <div class="req-preview__header">
+                                <div>
+                                    <h3
+                                        class="req-preview__id"
+                                        id="preview-id"
+                                    ></h3>
+                                    <p
+                                        class="req-preview__title"
+                                        id="preview-title"
+                                    ></p>
+                                </div>
+                                <button
+                                    class="req-preview__close"
+                                    id="preview-close"
+                                    title="Skjul panel"
+                                >
+                                    <span class="material-symbols-outlined"
+                                        >close</span
+                                    >
+                                </button>
+                            </div>
+                            <div
+                                class="req-preview__status"
+                                id="preview-status"
+                            ></div>
+                            <div class="req-preview__fields">
+                                <div class="req-preview__field">
+                                    <span class="req-preview__label"
+                                        >Beløp</span
+                                    >
+                                    <span
+                                        class="req-preview__value req-preview__amount"
+                                        id="preview-amount"
+                                    ></span>
+                                </div>
+                                <div class="req-preview__field">
+                                    <span class="req-preview__label"
+                                        >Lokasjon</span
+                                    >
+                                    <span
+                                        class="req-preview__value"
+                                        id="preview-location"
+                                    ></span>
+                                </div>
+                                <div class="req-preview__field">
+                                    <span class="req-preview__label"
+                                        >Rekvirent</span
+                                    >
+                                    <span
+                                        class="req-preview__value"
+                                        id="preview-requester"
+                                    ></span>
+                                </div>
+                                <div class="req-preview__field">
+                                    <span class="req-preview__label"
+                                        >Ønsket leveringsdato</span
+                                    >
+                                    <span
+                                        class="req-preview__value"
+                                        id="preview-delivery"
+                                    ></span>
+                                </div>
+                                <div class="req-preview__field">
+                                    <span class="req-preview__label"
+                                        >Godkjenning</span
+                                    >
+                                    <span
+                                        class="req-preview__value"
+                                        id="preview-approval"
+                                    ></span>
+                                </div>
+                                <div class="req-preview__field req-preview__field--full">
+                                    <span class="req-preview__label"
+                                        >Beskrivelse</span
+                                    >
+                                    <span
+                                        class="req-preview__value"
+                                        id="preview-desc"
+                                    ></span>
+                                </div>
+                            </div>
+                            <div class="req-preview__activity">
+                                <h4>Siste aktivitet</h4>
+                                <ul
+                                    class="req-preview__timeline"
+                                    id="preview-timeline"
+                                ></ul>
+                            </div>
+                            <div class="req-preview__actions" id="preview-actions">
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <!-- Pagination -->
+                <div class="req-pagination">
+                    <div class="req-pagination__info" id="pagination-info">
+                        Viser <strong>1–15</strong> av <strong>47</strong>
+                    </div>
+                    <div class="req-pagination__controls">
+                        <button class="req-pagination__btn" disabled>
+                            <span class="material-symbols-outlined"
+                                >chevron_left</span
+                            >
+                        </button>
+                        <button class="req-pagination__page active">
+                            1
+                        </button>
+                        <button class="req-pagination__page">2</button>
+                        <button class="req-pagination__page">3</button>
+                        <button class="req-pagination__page">4</button>
+                        <button class="req-pagination__btn">
+                            <span class="material-symbols-outlined"
+                                >chevron_right</span
+                            >
+                        </button>
+                    </div>
+                    <div class="req-pagination__per-page">
+                        <label>
+                            Rader per side
+                            <select id="per-page">
+                                <option value="15" selected>15</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Columns dropdown -->
+        <div class="req-dropdown" id="columns-dropdown" hidden>
+            <div class="req-dropdown__header">
+                <span>Synlige kolonner</span>
+                <button class="req-dropdown__close" id="columns-close">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <label class="req-dropdown__option">
+                <input type="checkbox" checked disabled />
+                Rekvisisjon
+            </label>
+            <label class="req-dropdown__option">
+                <input type="checkbox" checked disabled />
+                Status
+            </label>
+            <label class="req-dropdown__option">
+                <input
+                    type="checkbox"
+                    checked
+                    data-toggle-col="lokasjon"
+                />
+                Lokasjon
+            </label>
+            <label class="req-dropdown__option">
+                <input type="checkbox" checked disabled />
+                Rekvirent
+            </label>
+            <label class="req-dropdown__option">
+                <input
+                    type="checkbox"
+                    checked
+                    data-toggle-col="godkjenning"
+                />
+                Godkjenning
+            </label>
+            <label class="req-dropdown__option">
+                <input type="checkbox" checked disabled />
+                Oppdatert
+            </label>
+            <label class="req-dropdown__option">
+                <input type="checkbox" checked disabled />
+                Beløp
+            </label>
+        </div>
+
+        <!-- Density dropdown -->
+        <div class="req-dropdown" id="density-dropdown" hidden>
+            <div class="req-dropdown__header">
+                <span>Radtetthet</span>
+                <button class="req-dropdown__close" id="density-close">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <label class="req-dropdown__option">
+                <input
+                    type="radio"
+                    name="density"
+                    value="compact"
+                />
+                Kompakt
+            </label>
+            <label class="req-dropdown__option">
+                <input
+                    type="radio"
+                    name="density"
+                    value="default"
+                    checked
+                />
+                Standard
+            </label>
+            <label class="req-dropdown__option">
+                <input
+                    type="radio"
+                    name="density"
+                    value="comfortable"
+                />
+                Romslig
+            </label>
+        </div>
+    </body>
+</html>

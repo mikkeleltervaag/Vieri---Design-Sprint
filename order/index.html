@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vieri Bestilling - Bestill</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/products.js" defer></script>
+        <script src="../shared/cart.js" defer></script>
+        <script src="../shared/main.js" defer></script>
+        <script src="../shared/freetext-modal.js" defer></script>
+        <link rel="stylesheet" href="../shared/freetext-modal.css" />
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+        <div class="nav-overlay" onclick="toggleMenu()"></div>
+        <aside id="nav-slot"></aside>
+        <div class="main-container">
+            <!-- Page header panel -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__top">
+                        <h1 class="page-header__title">Bestilling</h1>
+                        <nav class="page-header__breadcrumb">
+                            <a href="../index.html">Hjem</a>
+                            <span class="material-symbols-outlined"
+                                >chevron_right</span
+                            >
+                            <span>Bestill</span>
+                        </nav>
+                    </div>
+                    <nav class="order-tabs">
+                        <a href="#" class="order-tab active">
+                            <span class="material-symbols-outlined"
+                                >search</span
+                            >
+                            Søk
+                        </a>
+                        <a href="#" class="order-tab">
+                            <span class="material-symbols-outlined"
+                                >checklist</span
+                            >
+                            Handlelister
+                        </a>
+                        <a href="#" class="order-tab">
+                            <span class="material-symbols-outlined"
+                                >storefront</span
+                            >
+                            Nettbutikker
+                        </a>
+                        <a href="#" class="order-tab">
+                            <span class="material-symbols-outlined"
+                                >history</span
+                            >
+                            Tidligere bestilt
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="order-page">
+                <!-- Search bar + freetext button -->
+                <div class="order-search-row">
+                    <div class="order-search">
+                        <span class="material-symbols-outlined">search</span>
+                        <input
+                            type="text"
+                            placeholder="Søk etter varer, for eksempel: *ka"
+                        />
+                    </div>
+                    <button class="order-nettbutikk-btn" type="button" id="nettbutikk-filter-btn" onclick="togglePunchoutFilter()">
+                        <span class="material-symbols-outlined">storefront</span>
+                        Nettbutikk
+                    </button>
+                    <button class="order-freetext-btn" type="button" onclick="FreetextModal.open()">
+                        <span class="material-symbols-outlined">edit_note</span>
+                        Fritekst
+                    </button>
+                </div>
+
+                <!-- Combined toolbar: chips + view/sort controls -->
+                <div class="order-toolbar">
+                    <div class="order-toolbar__left">
+                        <span class="order-products__count"></span>
+                    </div>
+                    <div class="order-toolbar__right">
+                        <div class="order-products__view">
+                            <button
+                                class="view-btn"
+                                data-view="list"
+                                title="Liste"
+                            >
+                                <span class="material-symbols-outlined"
+                                    >view_list</span
+                                >
+                            </button>
+                            <button
+                                class="view-btn active"
+                                data-view="grid"
+                                title="Rutenett"
+                            >
+                                <span class="material-symbols-outlined"
+                                    >grid_view</span
+                                >
+                            </button>
+                            <button
+                                class="view-btn"
+                                data-view="compact"
+                                title="Kompakt"
+                            >
+                                <span class="material-symbols-outlined"
+                                    >apps</span
+                                >
+                            </button>
+                        </div>
+                        <div class="order-products__sort">
+                            <span class="material-symbols-outlined"
+                                >swap_vert</span
+                            >
+                            <select>
+                                <option>Velg sortering</option>
+                                <option>Pris lav-høy</option>
+                                <option>Pris høy-lav</option>
+                                <option>Mest bestilt</option>
+                                <option>A-Å</option>
+                            </select>
+                        </div>
+                        <button
+                            class="order-toolbar__filter-toggle"
+                            onclick="toggleFilters()"
+                        >
+                            <span class="material-symbols-outlined"
+                                >tune</span
+                            >
+                            Filter
+                        </button>
+                        <a
+                            href="../cart-v2/"
+                            class="order-toolbar__cart"
+                            title="Handlekurv"
+                        >
+                            <span class="material-symbols-outlined"
+                                >shopping_cart</span
+                            >
+                            <span class="cart-count" hidden>0</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Content area: filters + products -->
+                <div class="order-content">
+                    <!-- Filters sidebar (generated by JS) -->
+                    <aside class="order-filters" id="order-filters"></aside>
+
+                    <!-- Products area -->
+                    <div class="order-products">
+                        <div class="product-grid" data-view="grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

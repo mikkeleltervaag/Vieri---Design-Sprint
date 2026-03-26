@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Leverandører — Vieri Bestilling</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/main.js"></script>
+        <script src="main.js"></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+
+        <div class="nav-overlay" onclick="closeMenu()"></div>
+        <aside id="nav-slot"></aside>
+
+        <div class="main-container">
+            <!-- Page header -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__top">
+                        <h1 class="page-header__title">Leverandører</h1>
+                        <nav class="page-header__breadcrumb">
+                            <a href="../index.html">Hjem</a>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                            <span>Administrasjon</span>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                            <span>Leverandører</span>
+                        </nav>
+                    </div>
+                    <nav class="list-tabs">
+                        <a class="list-tab active" data-tab="active">Aktive</a>
+                        <a class="list-tab" data-tab="inactive">Inaktive</a>
+                        <a class="list-tab" data-tab="all">Alle</a>
+                    </nav>
+                </div>
+            </div>
+
+            <main class="list-page">
+                <!-- Toolbar -->
+                <div class="list-toolbar">
+                    <div class="list-toolbar__left">
+                        <div class="list-search">
+                            <span class="material-symbols-outlined">search</span>
+                            <input type="text" placeholder="Søk i leverandører..." />
+                        </div>
+                    </div>
+                    <div class="list-toolbar__right">
+                        <span class="list-toolbar__count">12 leverandører</span>
+
+                        <div class="list-toolbar__views">
+                            <button class="view-btn active" data-view="default" title="Standard">
+                                <span class="material-symbols-outlined">view_agenda</span>
+                            </button>
+                            <button class="view-btn" data-view="table" title="Tabell">
+                                <span class="material-symbols-outlined">table_rows</span>
+                            </button>
+                        </div>
+
+                        <button class="list-toolbar__download" title="Last ned Excel">
+                            <span class="material-symbols-outlined">download</span>
+                            <span>Excel</span>
+                        </button>
+
+                        <button class="list-toolbar__add-btn">
+                            <span class="material-symbols-outlined">add</span>
+                            <span>Ny leverandør</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Batch toolbar (hidden until selection) -->
+                <div class="list-batch" id="batch-toolbar" hidden>
+                    <div class="list-batch__left">
+                        <label class="list-batch__select-all">
+                            <input type="checkbox" id="batch-select-all" />
+                            <span id="batch-count">0 valgt</span>
+                        </label>
+                    </div>
+                    <div class="list-batch__actions">
+                        <button class="list-batch__btn">
+                            <span class="material-symbols-outlined">edit</span>
+                            <span>Rediger</span>
+                        </button>
+                        <button class="list-batch__btn">
+                            <span class="material-symbols-outlined">toggle_off</span>
+                            <span>Deaktiver</span>
+                        </button>
+                        <button class="list-batch__btn list-batch__btn--danger">
+                            <span class="material-symbols-outlined">delete</span>
+                            <span>Slett</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Default card view -->
+                <div class="list-items" id="list-default-view">
+                    <!-- Sort bar -->
+                    <div class="list-sort-bar">
+                        <div class="list-sort-bar__check">
+                            <input type="checkbox" id="select-all-default" title="Velg alle" />
+                        </div>
+                        <button class="list-sort-btn active" data-sort="name">
+                            <span>Navn</span>
+                            <span class="material-symbols-outlined sort-icon">arrow_upward</span>
+                        </button>
+                        <button class="list-sort-btn" data-sort="orgnr">
+                            <span>Org.nr</span>
+                            <span class="material-symbols-outlined sort-icon">unfold_more</span>
+                        </button>
+                        <button class="list-sort-btn" data-sort="country">
+                            <span>Land</span>
+                            <span class="material-symbols-outlined sort-icon">unfold_more</span>
+                        </button>
+                        <button class="list-sort-btn" data-sort="phone">
+                            <span>Telefon</span>
+                            <span class="material-symbols-outlined sort-icon">unfold_more</span>
+                        </button>
+                        <button class="list-sort-btn" data-sort="email">
+                            <span>E-post</span>
+                            <span class="material-symbols-outlined sort-icon">unfold_more</span>
+                        </button>
+                        <button class="list-sort-btn" data-sort="integration">
+                            <span>Integrasjon</span>
+                            <span class="material-symbols-outlined sort-icon">unfold_more</span>
+                        </button>
+                        <button class="list-sort-btn" data-sort="freetext">
+                            <span>Fritekst</span>
+                            <span class="material-symbols-outlined sort-icon">unfold_more</span>
+                        </button>
+                    </div>
+
+                    <!-- Items rendered by JS -->
+                </div>
+
+                <!-- Table view (hidden by default) -->
+                <div class="list-table-wrap" id="list-table-view" hidden>
+                    <table class="list-table">
+                        <thead>
+                            <tr>
+                                <th class="list-table__check">
+                                    <input type="checkbox" id="select-all-table" title="Velg alle" />
+                                </th>
+                                <th><button class="list-sort-btn active" data-sort="name">Navn <span class="material-symbols-outlined sort-icon">arrow_upward</span></button></th>
+                                <th><button class="list-sort-btn" data-sort="orgnr">Org.nr <span class="material-symbols-outlined sort-icon">unfold_more</span></button></th>
+                                <th><button class="list-sort-btn" data-sort="country">Land <span class="material-symbols-outlined sort-icon">unfold_more</span></button></th>
+                                <th><button class="list-sort-btn" data-sort="phone">Telefon <span class="material-symbols-outlined sort-icon">unfold_more</span></button></th>
+                                <th><button class="list-sort-btn" data-sort="email">E-post <span class="material-symbols-outlined sort-icon">unfold_more</span></button></th>
+                                <th><button class="list-sort-btn" data-sort="integration">Integrasjon <span class="material-symbols-outlined sort-icon">unfold_more</span></button></th>
+                                <th><button class="list-sort-btn" data-sort="freetext">Fritekst <span class="material-symbols-outlined sort-icon">unfold_more</span></button></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="list-pagination">
+                    <div class="list-pagination__info">
+                        Viser <strong>1–12</strong> av <strong>12</strong>
+                    </div>
+                    <div class="list-pagination__controls">
+                        <button class="list-pagination__btn" disabled>
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button class="list-pagination__page active">1</button>
+                        <button class="list-pagination__btn" disabled>
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                    <div class="list-pagination__per-page">
+                        <label>
+                            <span>Per side:</span>
+                            <select>
+                                <option>10</option>
+                                <option selected>25</option>
+                                <option>50</option>
+                                <option>100</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

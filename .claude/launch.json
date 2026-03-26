@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["C:/Users/MikkelEltervåg/AppData/Roaming/npm/node_modules/serve/build/main.js", "."],
+      "port": 3000
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="nb">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vieri Bestilling - Rekvisisjon REQ-2024-0042</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="../shared/main.js" defer></script>
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <header id="header-slot"></header>
+        <div class="nav-overlay" onclick="toggleMenu()"></div>
+        <aside id="nav-slot"></aside>
+        <div class="main-container">
+            <!-- Page header -->
+            <div class="page-header">
+                <div class="page-header__inner">
+                    <div class="page-header__top">
+                        <div class="page-header__title-row">
+                            <div class="page-header__title-group">
+                                <div class="page-header__title-with-badge">
+                                    <h1 class="page-header__title">
+                                        REQ-2024-0042
+                                    </h1>
+                                    <span class="rd-badge rd-badge--draft"
+                                        >Kladd</span
+                                    >
+                                </div>
+                                <nav class="page-header__breadcrumb">
+                                    <a href="../index.html">Hjem</a>
+                                    <span class="material-symbols-outlined"
+                                        >chevron_right</span
+                                    >
+                                    <a href="../requisitions/index.html"
+                                        >Rekvisisjoner</a
+                                    >
+                                    <span class="material-symbols-outlined"
+                                        >chevron_right</span
+                                    >
+                                    <span>REQ-2024-0042</span>
+                                </nav>
+                            </div>
+                            <div class="page-header__actions">
+                                <button class="rd-secondary-btn">
+                                    <span class="material-symbols-outlined"
+                                        >swap_horiz</span
+                                    >
+                                    <span>Endre rekvirent</span>
+                                </button>
+                                <button class="rd-secondary-btn">
+                                    <span class="material-symbols-outlined"
+                                        >content_copy</span
+                                    >
+                                    <span>Kopier</span>
+                                </button>
+                                <button
+                                    class="rd-secondary-btn rd-secondary-btn--danger"
+                                >
+                                    <span class="material-symbols-outlined"
+                                        >delete</span
+                                    >
+                                    <span>Slett</span>
+                                </button>
+                                <span class="page-header__divider"></span>
+                                <button class="rd-secondary-btn" id="btn-save">
+                                    <span class="material-symbols-outlined"
+                                        >save</span
+                                    >
+                                    <span>Lagre</span>
+                                </button>
+                                <button class="rd-primary-btn" id="btn-start">
+                                    <span class="material-symbols-outlined"
+                                        >play_arrow</span
+                                    >
+                                    <span>Start bestillingsprosessen</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="rd-tabs" id="rd-tabs">
+                        <a class="rd-tab active" data-tab="detaljer"
+                            >Detaljer</a
+                        >
+                        <a class="rd-tab" data-tab="vedlegg">Vedlegg (3)</a>
+                        <a class="rd-tab" data-tab="logg">Logg</a>
+                    </nav>
+                </div>
+            </div>
+
+            <main class="rd-page">
+                <!-- Tab: Detaljer -->
+                <div class="rd-tab-content" id="tab-detaljer">
+                    <!-- Metadata form — compact -->
+                    <form class="rd-meta" id="rd-form">
+                        <details class="rd-meta__details" open>
+                            <summary class="rd-meta__summary">
+                                <span class="rd-meta__summary-text">Rekvisisjonsinformasjon</span>
+                                <span class="material-symbols-outlined rd-meta__chevron">expand_more</span>
+                            </summary>
+                            <div class="rd-meta__grid">
+                                <div class="rd-field">
+                                    <label class="rd-field__label" for="field-rekvirent">Rekvirent</label>
+                                    <input class="rd-field__input" type="text" id="field-rekvirent" value="Mikkel Eltervåg" />
+                                </div>
+                                <div class="rd-field">
+                                    <label class="rd-field__label" for="field-varemottaker">Varemottaker</label>
+                                    <input class="rd-field__input" type="text" id="field-varemottaker" value="Lager Oslo, Drammensveien 42" />
+                                </div>
+                                <div class="rd-field">
+                                    <label class="rd-field__label" for="field-leveringsdato">Ønsket leveringsdato</label>
+                                    <input class="rd-field__input" type="date" id="field-leveringsdato" value="2026-03-28" />
+                                </div>
+                                <div class="rd-field">
+                                    <label class="rd-field__label" for="field-leveringsadresse">Leveringsadresse</label>
+                                    <input class="rd-field__input" type="text" id="field-leveringsadresse" value="Drammensveien 42, 0271 Oslo" />
+                                </div>
+                                <div class="rd-field">
+                                    <label class="rd-field__label" for="field-tilbudsreferanse">Tilbudsreferanse</label>
+                                    <input class="rd-field__input" type="text" id="field-tilbudsreferanse" value="TIL-2024-1158" />
+                                </div>
+                                <div class="rd-field rd-field--full">
+                                    <label class="rd-field__label" for="field-beskrivelse">Beskrivelse</label>
+                                    <textarea class="rd-field__input rd-field__textarea" id="field-beskrivelse" rows="1">Kvartalsvis bestilling av kontorrekvisita og renholdsartikler for hovedkontoret. Gjelder Q2 2026.</textarea>
+                                </div>
+                                <div class="rd-field rd-field--full">
+                                    <label class="rd-field__label" for="field-notat">Internt notat</label>
+                                    <textarea class="rd-field__input rd-field__textarea" id="field-notat" rows="1">Husk å sjekke lagerbeholdning for renholdsartikler før godkjenning.</textarea>
+                                </div>
+                            </div>
+                        </details>
+                    </form>
+
+                    <!-- Products + totals block -->
+                    <div class="rd-products">
+                        <div class="rd-products__header">
+                            <h2 class="rd-products__title">
+                                Produktlinjer
+                                (<span id="product-count">0</span>)
+                            </h2>
+                            <div class="rd-products__header-right">
+                                <div class="rd-view-toggle" id="view-toggle">
+                                    <button class="rd-view-toggle__btn is-active" data-view="standard" title="Standard visning">
+                                        <span class="material-symbols-outlined">view_agenda</span>
+                                    </button>
+                                    <button class="rd-view-toggle__btn" data-view="compact" title="Kompakt visning">
+                                        <span class="material-symbols-outlined">view_list</span>
+                                    </button>
+                                </div>
+                                <button
+                                    class="rd-add-btn"
+                                    id="btn-add-product"
+                                >
+                                    <span class="material-symbols-outlined"
+                                        >add</span
+                                    >
+                                    <span>Legg til</span>
+                                    <span class="material-symbols-outlined"
+                                        >expand_more</span
+                                    >
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Batch bar -->
+                        <div class="rd-batch" id="batch-bar" hidden>
+                            <div class="rd-batch__left">
+                                <label class="rd-batch__select-all">
+                                    <input
+                                        type="checkbox"
+                                        id="batch-select-all"
+                                    />
+                                    <span id="batch-count">0 valgt</span>
+                                </label>
+                            </div>
+                            <div class="rd-batch__actions">
+                                <button class="rd-batch__btn">
+                                    <span class="material-symbols-outlined"
+                                        >edit</span
+                                    >
+                                    <span>Endre</span>
+                                </button>
+                                <button class="rd-batch__btn">
+                                    <span class="material-symbols-outlined"
+                                        >content_copy</span
+                                    >
+                                    <span>Kopier</span>
+                                </button>
+                                <button class="rd-batch__btn">
+                                    <span class="material-symbols-outlined"
+                                        >calendar_today</span
+                                    >
+                                    <span>Leveringsdato</span>
+                                </button>
+                                <button
+                                    class="rd-batch__btn rd-batch__btn--danger"
+                                >
+                                    <span class="material-symbols-outlined"
+                                        >delete</span
+                                    >
+                                    <span>Slett</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Product list -->
+                        <div class="rd-product-list" id="product-list"></div>
+
+                        <!-- Totals — summary footer -->
+                        <div class="rd-totals">
+                            <div class="rd-totals__inner">
+                                <div class="rd-totals__item">
+                                    <span class="rd-totals__label">Sum eks. mva</span>
+                                    <span class="rd-totals__value" id="total-ex-mva">0,00</span>
+                                </div>
+                                <div class="rd-totals__item">
+                                    <span class="rd-totals__label">MVA</span>
+                                    <span class="rd-totals__value" id="total-mva">0,00</span>
+                                </div>
+                                <div class="rd-totals__item rd-totals__item--grand">
+                                    <span class="rd-totals__label">Totalt</span>
+                                    <span class="rd-totals__value" id="total-incl-mva">0,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Vedlegg -->
+                <div class="rd-tab-content" id="tab-vedlegg" hidden>
+                    <div class="rd-placeholder">
+                        <span class="material-symbols-outlined"
+                            >attach_file</span
+                        >
+                        <h3>Vedlegg</h3>
+                        <p>
+                            Denne fanen er ikke implementert i denne
+                            prototypen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tab: Logg -->
+                <div class="rd-tab-content" id="tab-logg" hidden>
+                    <div class="rd-placeholder">
+                        <span class="material-symbols-outlined"
+                            >history</span
+                        >
+                        <h3>Aktivitetslogg</h3>
+                        <p>
+                            Denne fanen er ikke implementert i denne
+                            prototypen.
+                        </p>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Add product dropdown -->
+        <div class="rd-dropdown" id="add-product-dropdown" hidden>
+            <button class="rd-dropdown__item" data-action="katalog">
+                <span class="material-symbols-outlined">storefront</span>
+                Legg til fra katalog
+            </button>
+            <button class="rd-dropdown__item" data-action="fritekst">
+                <span class="material-symbols-outlined">edit_note</span>
+                Legg til fritekst
+            </button>
+            <button class="rd-dropdown__item" data-action="handleliste">
+                <span class="material-symbols-outlined">checklist</span>
+                Legg til fra handleliste
+            </button>
+            <button class="rd-dropdown__item" data-action="nettbutikk">
+                <span class="material-symbols-outlined">language</span>
+                Legg til fra nettbutikk
+            </button>
+            <button class="rd-dropdown__item" data-action="tidligere">
+                <span class="material-symbols-outlined">history</span>
+                Legg til fra tidligere bestilt
+            </button>
+            <button class="rd-dropdown__item" data-action="behovsmeldinger">
+                <span class="material-symbols-outlined"
+                    >person_raised_hand</span
+                >
+                Legg til behovsmeldinger
+            </button>
+            <div class="rd-dropdown__divider"></div>
+            <button class="rd-dropdown__item" data-action="upload">
+                <span class="material-symbols-outlined">upload_file</span>
+                Last opp fritekstlinjer
+            </button>
+        </div>
+
+        <!-- Product action dropdown -->
+        <div class="rd-dropdown" id="product-action-dropdown" hidden>
+            <button class="rd-dropdown__item" data-action="edit">
+                <span class="material-symbols-outlined">edit</span>
+                Endre denne linjen
+            </button>
+            <button class="rd-dropdown__item" data-action="replace">
+                <span class="material-symbols-outlined">find_replace</span>
+                Finn en erstatning for denne varen
+            </button>
+            <button class="rd-dropdown__item" data-action="copy">
+                <span class="material-symbols-outlined">content_copy</span>
+                Kopier denne linjen
+            </button>
+            <div class="rd-dropdown__divider"></div>
+            <button
+                class="rd-dropdown__item rd-dropdown__item--danger"
+                data-action="delete"
+            >
+                <span class="material-symbols-outlined">delete</span>
+                Slett denne linjen
+            </button>
+        </div>
+    </body>
+</html>

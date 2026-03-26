@@ -1,0 +1,283 @@
+/* ══════════════════════════════════════
+   Freetext Modal — Custom product entry
+   ══════════════════════════════════════ */
+
+.freetext-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.freetext-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.freetext-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    width: 520px;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 3rem);
+    background: #fff;
+    border-radius: 1.25rem;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+    z-index: 210;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.freetext-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ── Header ── */
+
+.freetext-modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.freetext-modal__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.freetext-modal__title .material-symbols-outlined {
+    font-size: 1.35rem;
+    color: #6c5ce7;
+}
+
+.freetext-modal__title h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #07434b;
+    margin: 0;
+}
+
+.freetext-modal__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    color: #888;
+    transition: all 0.15s;
+}
+
+.freetext-modal__close:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* ── Form ── */
+
+.freetext-modal__form {
+    padding: 1.25rem 1.5rem 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.freetext-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.freetext-field[hidden] {
+    display: none;
+}
+
+.freetext-field label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.freetext-field input,
+.freetext-field select,
+.freetext-field textarea {
+    padding: 0.625rem 0.75rem;
+    border: 1.5px solid #ddd;
+    border-radius: 0.625rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.15s;
+    background: #fff;
+}
+
+.freetext-field input:focus,
+.freetext-field select:focus,
+.freetext-field textarea:focus {
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+.freetext-field textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+.freetext-field input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.freetext-field input[type="number"]::-webkit-outer-spin-button,
+.freetext-field input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.freetext-field select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%23888' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+}
+
+.freetext-field-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* ── Summary ── */
+
+.freetext-modal__summary {
+    background: #f8fafa;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    border: 1px solid #eee;
+}
+
+.freetext-summary__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.freetext-summary__row--muted {
+    color: #888;
+    font-size: 0.8rem;
+}
+
+.freetext-summary__row--total {
+    border-top: 1px solid #ddd;
+    padding-top: 0.375rem;
+    margin-top: 0.125rem;
+    font-size: 0.95rem;
+    color: #07434b;
+}
+
+.freetext-summary__row--total strong {
+    font-size: 1.05rem;
+}
+
+/* ── Actions ── */
+
+.freetext-modal__actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+    padding-top: 0.25rem;
+}
+
+.freetext-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.7rem 1.25rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.freetext-btn .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+.freetext-btn--secondary {
+    background: #f0f0f0;
+    color: #555;
+}
+
+.freetext-btn--secondary:hover {
+    background: #e4e4e4;
+}
+
+.freetext-btn--primary {
+    background: #6c5ce7;
+    color: #fff;
+}
+
+.freetext-btn--primary:hover {
+    background: #5a4bd1;
+}
+
+.freetext-btn--primary:active {
+    transform: scale(0.97);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 560px) {
+    .freetext-modal {
+        width: calc(100vw - 1rem);
+        max-height: calc(100vh - 2rem);
+        border-radius: 1rem;
+    }
+
+    .freetext-modal__form {
+        padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .freetext-field-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .freetext-modal__actions {
+        flex-direction: column-reverse;
+    }
+
+    .freetext-btn {
+        justify-content: center;
+    }
+}
