@@ -74,7 +74,7 @@ const PUNCHOUT_ITEMS = [
         description: "Kontorrekvisita, penner, papir, arkivering og skrivebordsutstyr",
         icon: "edit_note",
         url: "#",
-        keywords: ["kontor", "penn", "penner", "papir", "blekk", "post-it", "notat", "arkiv", "mappe", "mapper", "rekvisita", "skrivebordsartikler", "tape", "lim", "saks", "stiftemaskin"],
+        keywords: ["kontor", "penn", "penner", "papir", "blekk", "post-it", "notat", "arkiv", "mappe", "mapper", "rekvisita", "skrivebordsartikler", "tape", "lim", "saks", "stiftemaskin", "tastatur", "keyboard"],
         isPunchout: true,
     },
     {
