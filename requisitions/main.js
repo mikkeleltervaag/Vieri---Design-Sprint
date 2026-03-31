@@ -475,7 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ── Preview panel ──
     function getActionsForStatus(status) {
-        const open = { icon: "open_in_new", label: "Åpne detaljside", cls: "" }
+        const open = { icon: "open_in_new", label: "Åpne detaljside", cls: "", action: "open-detail" }
         const send = { icon: "send", label: "Send til godkjenning", cls: "" }
         const approve = { icon: "check_circle", label: "Godkjenn", cls: "req-preview__action-btn--approve" }
         const reject = { icon: "cancel", label: "Avvis", cls: "req-preview__action-btn--reject" }
@@ -542,13 +542,19 @@ document.addEventListener("DOMContentLoaded", () => {
         actionsEl.innerHTML = actions
             .map(
                 (a) => `
-            <button class="req-preview__action-btn ${a.cls}">
+            <button class="req-preview__action-btn ${a.cls}" ${a.action ? `data-action="${a.action}"` : ""}>
                 <span class="material-symbols-outlined">${a.icon}</span>
                 ${a.label}
             </button>
         `
             )
             .join("")
+
+        actionsEl.querySelectorAll("[data-action='open-detail']").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                window.location.href = "../requisition-detail/"
+            })
+        })
 
         // If collapsed, expand the preview
         if (previewCollapsed) {
