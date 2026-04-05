@@ -1,0 +1,169 @@
+/*
+ * Mork modus -- Dark glassmorphism theme
+ *
+ * Color palette:
+ *   Background gradient:  #0a2e2e → #1a1028  (dark teal to dark purple)
+ *   Heading/accent:       #6dd5c3  (bright mint — inverted primary)
+ *   Body text:            #d4d4d4
+ *   Secondary text:       #8aa0a5 / #7a9098
+ *   Glass surfaces:       rgba(255,255,255, 0.05–0.12)
+ *   Glass borders:        rgba(255,255,255, 0.06–0.1)
+ *   Shadows:              rgba(0,0,0, 0.25–0.4)
+ */
+
+/* ── Dark gradient background ── */
+body {
+    background: linear-gradient(to bottom right, #0a2e2e, #1a1028) !important;
+    color: #d4d4d4 !important;
+}
+
+/* ── Header: dark glass ── */
+body > header {
+    background: rgba(15, 25, 30, 0.7) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ── Sidebar: dark glass ── */
+body > aside {
+    background: rgba(15, 25, 30, 0.5) !important;
+    border-right-color: rgba(255, 255, 255, 0.06) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+@media (max-width: 1024px) {
+    body > aside {
+        background: rgba(15, 25, 30, 0.85) !important;
+    }
+}
+
+/* ── Nav overlay ── */
+.nav-overlay.open {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* ── Headings ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #6dd5c3 !important;
+}
+
+/* ── Cards / glass panels ── */
+.card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* ── Nav links ── */
+.main-nav h4 {
+    color: #6dd5c3 !important;
+    border-bottom-color: rgba(109, 213, 195, 0.4) !important;
+}
+.main-nav a {
+    color: #c8d6d9 !important;
+}
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+.main-nav a.active {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ── Header elements ── */
+.header__location-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.header__location-btn:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+.header__location-btn .material-symbols-outlined {
+    color: #6dd5c3 !important;
+}
+
+.header__company {
+    color: #8aa0a5 !important;
+}
+.header__location-name {
+    color: #d4d4d4 !important;
+}
+.header__chevron {
+    color: #7a9098 !important;
+}
+
+.header__help .material-symbols-outlined,
+.header__cart .material-symbols-outlined,
+.header__menu-toggle .material-symbols-outlined {
+    color: #6dd5c3 !important;
+}
+.header__help:hover,
+.header__cart:hover,
+.header__menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.header__user {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.header__user:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+.header__avatar {
+    background: #1a5c5c !important;
+}
+.header__user-name {
+    color: #d4d4d4 !important;
+}
+
+.header__cart-badge {
+    background: #e74c3c !important;
+}
+
+/* ── Inputs ── */
+input,
+select,
+textarea {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #d4d4d4 !important;
+}
+input::placeholder,
+textarea::placeholder {
+    color: #7a9098 !important;
+}
+
+/* ── Buttons ── */
+button {
+    color: #d4d4d4;
+}
+
+/* ── Tables ── */
+table {
+    color: #d4d4d4;
+}
+th {
+    color: #8ab8b8 !important;
+}
+
+/* ── Theme dropdown (dark variant) ── */
+.theme-dropdown {
+    background: rgba(20, 32, 38, 0.92) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+.theme-dropdown__item {
+    color: #d4d4d4 !important;
+}
+.theme-dropdown__item:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+.theme-dropdown__check {
+    color: #6dd5c3 !important;
+}
