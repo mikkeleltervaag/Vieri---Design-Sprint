@@ -19,14 +19,14 @@ body > header {
 /* ── Sidebar ── */
 body > aside {
     background: rgba(255, 255, 255, 0.4) !important;
-    border-right-color: rgba(255, 255, 255, 0.5) !important;
+    border-right-color: #EEF4F3 !important;
 }
 
 
 /* ── Page header ── */
 .page-header {
-    background: rgba(255, 255, 255, 0.55) !important;
-    border-bottom-color: rgba(7, 67, 75, 0.15) !important;
+    background: #D5EEEB !important;
+    border-bottom-color: #EEF4F3 !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
