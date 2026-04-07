@@ -279,7 +279,7 @@
 
 .rd-meta__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem 1.25rem;
     padding: 0 1.25rem 1rem;
 }
@@ -519,7 +519,7 @@
 .rd-product-list {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.625rem;
 }
 
 /* Shared checkbox style */
@@ -1142,10 +1142,6 @@
 
 /* Container queries */
 @container (max-width: 900px) {
-    .rd-meta__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .rd-totals__inner {
         flex-wrap: wrap;
         gap: 0.5rem 1.25rem;

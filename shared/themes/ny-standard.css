@@ -24,9 +24,22 @@ body > aside {
 
 
 /* ── Cards / glass panels ── */
-.card {
+.card,
+.req-table-wrap,
+.req-preview,
+.rd-meta,
+.rd-std-row,
+.order-filters,
+.product-card,
+.checkout-section {
     background: rgba(255, 255, 255, 0.4) !important;
     border-color: rgba(255, 255, 255, 0.5) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Nested supplier groups inside cart items — stronger contrast against brighter parent */
+.item-group {
+    background: rgba(255, 255, 255, 0.55) !important;
+    border-color: rgba(7, 67, 75, 0.18) !important;
 }
 
