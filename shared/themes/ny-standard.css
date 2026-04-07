@@ -23,6 +23,13 @@ body > aside {
 }
 
 
+/* ── Page header ── */
+.page-header {
+    background: rgba(255, 255, 255, 0.55) !important;
+    border-bottom-color: rgba(7, 67, 75, 0.15) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
 /* ── Cards / glass panels ── */
 .card,
 .req-table-wrap,
