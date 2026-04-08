@@ -39,7 +39,7 @@ body > aside {
 .order-filters,
 .product-card,
 .checkout-section {
-    background: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.45) !important;
     border-color: rgba(255, 255, 255, 0.5) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
 }
@@ -50,3 +50,8 @@ body > aside {
     border-color: rgba(7, 67, 75, 0.18) !important;
 }
 
+.your-tasks {
+  & .tasks__item {
+    background: rgba(255, 255, 255, 0.70) !important;
+  }
+}

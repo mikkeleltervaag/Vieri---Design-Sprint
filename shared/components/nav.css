@@ -13,19 +13,19 @@
     }
 
     h4 {
-        margin: 1rem 0.5rem 0.125rem 0.5rem;
+        margin: 0.625rem 0.5rem 0.375rem 0.5rem;
         color: #327887;
         font-size: 0.875rem;
         font-weight: 600;
         letter-spacing: 1px;
         border-bottom: #327887 1px solid;
-        padding-bottom: 3px;
+        padding-bottom: 0.375rem;
     }
 
     a {
         display: flex;
         align-items: center;
-        padding: 0.4375rem 0.75rem;
+        padding: 0.375rem 0.75rem;
         border-radius: 0.75rem;
         color: #333;
         text-decoration: none;
