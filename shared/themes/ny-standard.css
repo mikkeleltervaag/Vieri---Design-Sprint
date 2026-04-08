@@ -25,8 +25,8 @@ body > aside {
 
 /* ── Page header ── */
 .page-header {
-    background: #D5EEEB !important;
-    border-bottom-color: #EEF4F3 !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.4)
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
