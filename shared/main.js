@@ -106,8 +106,16 @@ function initThemeSwitcher() {
             <span class="material-symbols-outlined theme-dropdown__check">check</span>
             M\u00f8rk modus
         </button>
+        <div class="theme-dropdown__divider"></div>
+        <input type="color" class="theme-dropdown__color-input" value="#c2ede4" title="Bakgrunnsfarge">
     `
     userBtn.parentElement.appendChild(dropdown)
+
+    // Color picker: override body background with solid color (non-persistent)
+    const colorInput = dropdown.querySelector(".theme-dropdown__color-input")
+    colorInput.addEventListener("input", (e) => {
+        document.body.style.setProperty("background", e.target.value, "important")
+    })
 
     // Apply saved theme
     const saved = localStorage.getItem("vieri-theme") || "standard"
