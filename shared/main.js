@@ -94,13 +94,9 @@ function initThemeSwitcher() {
     dropdown.className = "theme-dropdown"
     dropdown.hidden = true
     dropdown.innerHTML = `
-        <button class="theme-dropdown__item" data-theme="standard">
-            <span class="material-symbols-outlined theme-dropdown__check">check</span>
-            Standard
-        </button>
         <button class="theme-dropdown__item" data-theme="ny-standard">
             <span class="material-symbols-outlined theme-dropdown__check">check</span>
-            Ny standard
+            Standard
         </button>
         <button class="theme-dropdown__item" data-theme="mork-modus">
             <span class="material-symbols-outlined theme-dropdown__check">check</span>
@@ -118,7 +114,7 @@ function initThemeSwitcher() {
     })
 
     // Apply saved theme
-    const saved = localStorage.getItem("vieri-theme") || "standard"
+    const saved = localStorage.getItem("vieri-theme") || "ny-standard"
     applyTheme(saved)
 
     // Toggle dropdown on user button click
