@@ -103,15 +103,57 @@ function initThemeSwitcher() {
             M\u00f8rk modus
         </button>
         <div class="theme-dropdown__divider"></div>
-        <input type="color" class="theme-dropdown__color-input" value="#c2ede4" title="Bakgrunnsfarge">
+        <label class="theme-dropdown__checkbox-row">
+            <input type="checkbox" class="theme-dropdown__toggle" data-target="color1">
+            <span>Egendefinert bakgrunn</span>
+        </label>
+        <input type="color" class="theme-dropdown__color-input" data-id="color1" value="#c2ede4" title="Bakgrunnsfarge" disabled>
+        <label class="theme-dropdown__checkbox-row">
+            <input type="checkbox" class="theme-dropdown__toggle" data-target="color2">
+            <span>Gradient (farge 2)</span>
+        </label>
+        <input type="color" class="theme-dropdown__color-input" data-id="color2" value="#f6eaf6" title="Gradient farge 2" disabled>
     `
     userBtn.parentElement.appendChild(dropdown)
 
-    // Color picker: override body background with solid color (non-persistent)
-    const colorInput = dropdown.querySelector(".theme-dropdown__color-input")
-    colorInput.addEventListener("input", (e) => {
-        document.body.style.setProperty("background", e.target.value, "important")
+    // Color picker logic
+    const color1 = dropdown.querySelector('[data-id="color1"]')
+    const color2 = dropdown.querySelector('[data-id="color2"]')
+    const toggle1 = dropdown.querySelector('[data-target="color1"]')
+    const toggle2 = dropdown.querySelector('[data-target="color2"]')
+
+    function applyCustomBackground() {
+        if (!toggle1.checked) {
+            document.body.style.removeProperty("background")
+            return
+        }
+        if (toggle2.checked) {
+            document.body.style.setProperty(
+                "background",
+                `linear-gradient(to bottom right, ${color1.value}, ${color2.value})`,
+                "important"
+            )
+        } else {
+            document.body.style.setProperty("background", color1.value, "important")
+        }
+    }
+
+    toggle1.addEventListener("change", () => {
+        color1.disabled = !toggle1.checked
+        if (!toggle1.checked) {
+            toggle2.checked = false
+            color2.disabled = true
+        }
+        applyCustomBackground()
     })
+
+    toggle2.addEventListener("change", () => {
+        color2.disabled = !toggle2.checked
+        applyCustomBackground()
+    })
+
+    color1.addEventListener("input", applyCustomBackground)
+    color2.addEventListener("input", applyCustomBackground)
 
     // Apply saved theme
     const saved = localStorage.getItem("vieri-theme") || "ny-standard"
