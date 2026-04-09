@@ -12,21 +12,21 @@ body {
 /* ── Header ── */
 body > header {
     background: rgba(255, 255, 255, 0.6) !important;
-    border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+    border-bottom-color: #fff !important;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
 }
 
 /* ── Sidebar ── */
 body > aside {
     background: rgba(255, 255, 255, 0.4) !important;
-    border-right-color: #EEF4F3 !important;
+    border-right-color: #fff !important;
 }
 
 
 /* ── Page header ── */
 .page-header {
     background: rgba(255, 255, 255, 0.5) !important;
-    border-color: rgba(255, 255, 255, 0.4)
+    border-color: rgba(255, 255, 255, 0.4) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
