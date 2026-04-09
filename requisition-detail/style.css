@@ -66,7 +66,7 @@
     align-items: center;
     gap: 0.25rem;
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 .page-header__breadcrumb a {
@@ -112,7 +112,7 @@
 
 .rd-badge--draft {
     background: rgba(0, 0, 0, 0.06);
-    color: #888;
+    color: #444;
 }
 
 /* ── Buttons ── */
@@ -277,7 +277,7 @@
 .rd-sidebar__heading {
     font-size: 0.65rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin: 0 0 0.5rem;
@@ -308,7 +308,7 @@
 
 .rd-sidebar__hint {
     font-size: 0.725rem;
-    color: #999;
+    color: #666;
     margin: 0.25rem 0 0;
 }
 
@@ -321,7 +321,7 @@
 }
 
 .rd-sidebar__dl dt {
-    color: #888;
+    color: #444;
     font-weight: 500;
 }
 
@@ -371,7 +371,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    color: #bbb;
+    color: #666;
     border-radius: 50%;
 }
 
@@ -387,7 +387,7 @@
     display: block;
     font-size: 0.775rem;
     font-weight: 500;
-    color: #555;
+    color: #444;
     line-height: 1.3;
 }
 
@@ -399,7 +399,7 @@
 .rd-sidebar__step-meta {
     display: block;
     font-size: 0.675rem;
-    color: #999;
+    color: #666;
     line-height: 1.3;
 }
 
@@ -445,7 +445,7 @@
 
 .rd-meta__chevron {
     font-size: 1.25rem !important;
-    color: #888;
+    color: #444;
     transition: transform 0.2s;
 }
 
@@ -473,7 +473,7 @@
 .rd-field__label {
     font-size: 0.675rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -503,7 +503,7 @@
 }
 
 .rd-field__input::placeholder {
-    color: #999;
+    color: #666;
 }
 
 .rd-field__textarea {
@@ -564,7 +564,7 @@
 
 .rd-view-toggle__btn .material-symbols-outlined {
     font-size: 1.15rem;
-    color: #999;
+    color: #666;
     transition: color 0.15s;
 }
 
@@ -826,7 +826,7 @@
 
 .rd-std-row__menu-btn .material-symbols-outlined {
     font-size: 1.125rem;
-    color: #888;
+    color: #444;
 }
 
 /* Secondary metadata line — always visible */
@@ -848,7 +848,7 @@
 }
 
 .rd-std-row__meta-label {
-    color: #999;
+    color: #666;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.3px;
@@ -856,7 +856,7 @@
 }
 
 .rd-std-row__meta-value {
-    color: #666;
+    color: #444;
 }
 
 .rd-std-row__meta--kontering {
@@ -900,7 +900,7 @@
 .rd-std-row__detail-label {
     font-size: 0.625rem;
     font-weight: 600;
-    color: #999;
+    color: #666;
     text-transform: uppercase;
     letter-spacing: 0.4px;
 }
@@ -938,7 +938,7 @@
     text-align: left;
     font-size: 0.65rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     text-transform: uppercase;
     letter-spacing: 0.4px;
     white-space: nowrap;
@@ -1050,7 +1050,7 @@
 
 .rd-compact__td-avtale {
     white-space: nowrap;
-    color: #666;
+    color: #444;
 }
 
 .rd-compact__td-menu {
@@ -1077,7 +1077,7 @@
 
 .rd-compact__menu-btn .material-symbols-outlined {
     font-size: 1rem;
-    color: #888;
+    color: #444;
 }
 
 /* Expand row in compact view */
@@ -1111,7 +1111,7 @@
 .rd-compact__expand-label {
     font-size: 0.6rem;
     font-weight: 600;
-    color: #999;
+    color: #666;
     text-transform: uppercase;
     letter-spacing: 0.4px;
 }
@@ -1147,14 +1147,14 @@
 .rd-totals__label {
     font-size: 0.75rem;
     font-weight: 500;
-    color: #888;
+    color: #444;
     white-space: nowrap;
 }
 
 .rd-totals__value {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #555;
+    color: #444;
     white-space: nowrap;
 }
 
@@ -1240,7 +1240,7 @@
     justify-content: center;
     padding: 4rem 1.5rem;
     text-align: center;
-    color: #aaa;
+    color: #666;
     gap: 0.5rem;
     background: rgba(255, 255, 255, 0.15);
     border-radius: var(--border-radius);
@@ -1255,14 +1255,14 @@
 .rd-placeholder h3 {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     margin: 0;
 }
 
 .rd-placeholder p {
     font-size: 0.8rem;
     margin: 0;
-    color: #aaa;
+    color: #666;
 }
 
 /* ── Responsive ── */

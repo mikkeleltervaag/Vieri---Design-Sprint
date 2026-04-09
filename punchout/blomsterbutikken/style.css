@@ -99,7 +99,7 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: all 0.15s;
-    color: #555;
+    color: #444;
 }
 
 .shop-header__cart:hover {
@@ -143,7 +143,7 @@ body {
 
 .shop-hero p {
     font-size: 0.95rem;
-    color: #777;
+    color: #444;
 }
 
 /* ── Main ── */
@@ -214,7 +214,7 @@ body {
 
 .flower-card__desc {
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
     line-height: 1.4;
 }
 
@@ -325,7 +325,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    color: #888;
+    color: #444;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -353,7 +353,7 @@ body {
     justify-content: center;
     gap: 0.5rem;
     padding: 3rem 1rem;
-    color: #bbb;
+    color: #666;
 }
 
 .cart-panel__empty .material-symbols-outlined {
@@ -397,7 +397,7 @@ body {
 
 .cart-item__price {
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 .cart-item__qty {
@@ -416,7 +416,7 @@ body {
     border: none;
     cursor: pointer;
     font-size: 0.9rem;
-    color: #555;
+    color: #444;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -438,7 +438,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    color: #ccc;
+    color: #666;
     display: flex;
     align-items: center;
     padding: 0.25rem;
@@ -508,7 +508,7 @@ body {
 
 .cart-panel__note {
     font-size: 0.7rem;
-    color: #999;
+    color: #666;
     text-align: center;
     line-height: 1.4;
 }
@@ -551,7 +551,7 @@ body {
 
 .success-toast p {
     font-size: 0.85rem;
-    color: #777;
+    color: #444;
     line-height: 1.5;
     margin-bottom: 1.25rem;
 }

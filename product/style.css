@@ -20,7 +20,7 @@
     align-items: center;
     gap: 0.25rem;
     font-size: 0.8rem;
-    color: #666;
+    color: #444;
 }
 
 .page-header__breadcrumb a {
@@ -57,7 +57,7 @@
 
 .product-not-found .material-symbols-outlined {
     font-size: 3rem;
-    color: #999;
+    color: #666;
 }
 
 .product-not-found h2 {
@@ -67,7 +67,7 @@
 }
 
 .product-not-found p {
-    color: #666;
+    color: #444;
     font-size: 0.9rem;
     margin: 0;
 }
@@ -152,7 +152,7 @@
     font-family: inherit;
     font-size: 0.8rem;
     font-weight: 500;
-    color: #555;
+    color: #444;
     transition: all 0.15s;
 }
 
@@ -195,7 +195,7 @@
 
 .product-detail__desc {
     font-size: 0.9rem;
-    color: #555;
+    color: #444;
     line-height: 1.5;
     margin: 0.25rem 0 0.5rem;
 }
@@ -229,7 +229,7 @@
 
 .product-detail__meta-label {
     font-size: 0.75rem;
-    color: #666;
+    color: #444;
     font-weight: 500;
 }
 
@@ -252,7 +252,7 @@
 
 .product-detail__price-sub {
     font-size: 0.8rem;
-    color: #666;
+    color: #444;
     margin-top: 0.125rem;
 }
 

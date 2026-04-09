@@ -45,7 +45,7 @@
     align-items: center;
     gap: 0.25rem;
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 .page-header__breadcrumb a {
@@ -110,14 +110,14 @@
     font-size: 0.8rem;
     font-weight: 700;
     background: rgba(0, 0, 0, 0.08);
-    color: #888;
+    color: #444;
     flex-shrink: 0;
 }
 
 .cart-stepper__label {
     font-size: 0.85rem;
     font-weight: 500;
-    color: #888;
+    color: #444;
     white-space: nowrap;
 }
 
@@ -195,7 +195,7 @@
 .cart-toolbar__count {
     font-size: 0.85rem;
     font-weight: 500;
-    color: #666;
+    color: #444;
 }
 
 /* ── Cart content layout ── */
@@ -271,7 +271,7 @@
     display: flex;
     gap: 1rem;
     font-size: 0.75rem;
-    color: #888;
+    color: #444;
 }
 
 /* Quantity controls */
@@ -332,7 +332,7 @@
 
 .cart-item__unit-price {
     font-size: 0.7rem;
-    color: #888;
+    color: #444;
     white-space: nowrap;
 }
 
@@ -353,7 +353,7 @@
 
 .cart-item__vat {
     font-size: 0.65rem;
-    color: #aaa;
+    color: #666;
 }
 
 /* Item actions */
@@ -378,7 +378,7 @@
 
 .cart-item__action .material-symbols-outlined {
     font-size: 1.125rem;
-    color: #888;
+    color: #444;
 }
 
 .cart-item__action:hover {
@@ -386,7 +386,7 @@
 }
 
 .cart-item__action:hover .material-symbols-outlined {
-    color: #555;
+    color: #444;
 }
 
 .cart-item__action--delete:hover {
@@ -428,7 +428,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.875rem;
-    color: #555;
+    color: #444;
 }
 
 .cart-summary__row span:last-child {
@@ -457,7 +457,7 @@
 
 .cart-summary__vat-note {
     font-size: 0.7rem;
-    color: #aaa;
+    color: #666;
     text-align: right;
     margin: 0.125rem 0 0;
 }
@@ -541,7 +541,7 @@
 .cart-summary__delivery-row p {
     margin: 0.125rem 0 0;
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 /* ── Responsive ── */

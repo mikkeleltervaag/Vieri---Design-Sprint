@@ -92,7 +92,7 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 
     > .material-symbols-outlined {
-        color: #888;
+        color: #444;
         font-size: 1.5rem;
         margin-right: 0.75rem;
     }
@@ -108,7 +108,7 @@
         font-family: inherit;
 
         &::placeholder {
-            color: #999;
+            color: #666;
         }
     }
 
@@ -204,7 +204,7 @@
 .search-dropdown__empty {
     padding: 2rem;
     text-align: center;
-    color: #888;
+    color: #444;
     font-size: 0.9rem;
 }
 
@@ -232,7 +232,7 @@
 
 .no-results__icon .material-symbols-outlined {
     font-size: 1.5rem;
-    color: #999;
+    color: #666;
 }
 
 .no-results__title {
@@ -244,7 +244,7 @@
 
 .no-results__subtitle {
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
     margin: 0 0 0.25rem;
 }
 
@@ -311,7 +311,7 @@
 
 .no-results__btn--request {
     background: #f0f0f0;
-    color: #555;
+    color: #444;
     border: 1.5px solid #ddd;
 }
 
@@ -374,7 +374,7 @@
 
 .search-result__desc {
     font-size: 0.8rem;
-    color: #777;
+    color: #444;
     margin-top: 0.125rem;
     white-space: nowrap;
     overflow: hidden;
@@ -407,7 +407,7 @@
     justify-content: center;
     transition: all 0.15s;
     padding: 0;
-    color: #555;
+    color: #444;
 }
 
 .search-result__add-btn .material-symbols-outlined {
@@ -556,7 +556,7 @@
     border-radius: 0.5rem;
     background: none;
     border: none;
-    color: #555;
+    color: #444;
     font-size: 0.8rem;
     font-weight: 600;
     font-family: inherit;
@@ -571,7 +571,7 @@
 }
 
 .search-dropdown__help-toggle:hover {
-    color: #555;
+    color: #444;
     background: rgba(0, 0, 0, 0.04);
 }
 

@@ -61,7 +61,7 @@ body.full-width .page-header__inner {
     align-items: center;
     gap: 0.25rem;
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 .page-header__breadcrumb a {
@@ -184,7 +184,7 @@ body.full-width .page-header__inner {
 }
 
 .req-search > .material-symbols-outlined {
-    color: #888;
+    color: #444;
     font-size: 1.2rem;
 }
 
@@ -200,7 +200,7 @@ body.full-width .page-header__inner {
 }
 
 .req-search input[type="text"]::placeholder {
-    color: #999;
+    color: #666;
 }
 
 /* Toolbar buttons */
@@ -290,7 +290,7 @@ body.full-width .page-header__inner {
 
 .req-chip__remove .material-symbols-outlined {
     font-size: 0.85rem;
-    color: #555;
+    color: #444;
 }
 
 /* ── Batch action bar ── */
@@ -439,7 +439,7 @@ body.full-width .page-header__inner {
 
 .req-table td {
     padding: 0.75rem 0.75rem;
-    color: #555;
+    color: #444;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     vertical-align: top;
 }
@@ -516,7 +516,7 @@ body.full-width .page-header__inner {
     font-family: inherit;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     padding: 0.25rem 0.125rem;
     border-radius: 0.375rem;
     transition: color 0.15s, background 0.15s;
@@ -546,14 +546,14 @@ body.full-width .page-header__inner {
 
 .req-cell__secondary {
     font-size: 0.725rem;
-    color: #888;
+    color: #444;
     line-height: 1.35;
     margin-top: 0.125rem;
 }
 
 .req-cell__tertiary {
     font-size: 0.675rem;
-    color: #aaa;
+    color: #666;
     margin-top: 0.125rem;
 }
 
@@ -571,7 +571,7 @@ body.full-width .page-header__inner {
 
 .req-badge--draft {
     background: rgba(0, 0, 0, 0.06);
-    color: #888;
+    color: #444;
 }
 
 .req-badge--open {
@@ -596,7 +596,7 @@ body.full-width .page-header__inner {
 
 .req-badge--archived {
     background: rgba(0, 0, 0, 0.05);
-    color: #999;
+    color: #666;
 }
 
 .req-badge--ordered {
@@ -624,7 +624,7 @@ body.full-width .page-header__inner {
 }
 
 .req-approval--none .req-approval__icon {
-    color: #ccc;
+    color: #666;
 }
 
 /* Amount cell */
@@ -659,7 +659,7 @@ body.full-width .page-header__inner {
     justify-content: center;
     padding: 4rem 1.5rem;
     text-align: center;
-    color: #aaa;
+    color: #666;
     gap: 0.5rem;
     min-height: 280px;
     position: relative;
@@ -684,14 +684,14 @@ body.full-width .page-header__inner {
 .req-preview__empty h3 {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     margin: 0;
 }
 
 .req-preview__empty p {
     font-size: 0.8rem;
     margin: 0;
-    color: #aaa;
+    color: #666;
     line-height: 1.4;
     max-width: 220px;
 }
@@ -723,7 +723,7 @@ body.full-width .page-header__inner {
 
 .req-preview__title {
     font-size: 0.85rem;
-    color: #555;
+    color: #444;
     margin: 0.125rem 0 0;
     line-height: 1.35;
 }
@@ -748,7 +748,7 @@ body.full-width .page-header__inner {
 
 .req-preview__close .material-symbols-outlined {
     font-size: 1.15rem;
-    color: #888;
+    color: #444;
 }
 
 .req-preview__status {
@@ -775,7 +775,7 @@ body.full-width .page-header__inner {
 .req-preview__label {
     font-size: 0.7rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -813,7 +813,7 @@ body.full-width .page-header__inner {
     display: flex;
     gap: 0.5rem;
     font-size: 0.775rem;
-    color: #555;
+    color: #444;
     line-height: 1.4;
     padding-left: 1rem;
     border-left: 2px solid rgba(7, 67, 75, 0.12);
@@ -838,7 +838,7 @@ body.full-width .page-header__inner {
 .req-timeline__date {
     flex-shrink: 0;
     font-weight: 600;
-    color: #888;
+    color: #444;
     font-size: 0.7rem;
     min-width: 4rem;
 }
@@ -905,11 +905,11 @@ body.full-width .page-header__inner {
 }
 
 .req-preview__action-btn--archive {
-    color: #888;
+    color: #444;
 }
 
 .req-preview__action-btn--archive .material-symbols-outlined {
-    color: #888;
+    color: #444;
 }
 
 /* ── Pagination ── */
@@ -924,11 +924,11 @@ body.full-width .page-header__inner {
 
 .req-pagination__info {
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 .req-pagination__info strong {
-    color: #555;
+    color: #444;
 }
 
 .req-pagination__controls {
@@ -961,7 +961,7 @@ body.full-width .page-header__inner {
 
 .req-pagination__btn .material-symbols-outlined {
     font-size: 1.15rem;
-    color: #555;
+    color: #444;
 }
 
 .req-pagination__page {
@@ -978,7 +978,7 @@ body.full-width .page-header__inner {
     font-family: inherit;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #888;
+    color: #444;
     transition: all 0.15s;
 }
 
@@ -995,7 +995,7 @@ body.full-width .page-header__inner {
 
 .req-pagination__per-page {
     font-size: 0.8rem;
-    color: #888;
+    color: #444;
 }
 
 .req-pagination__per-page label {
@@ -1072,7 +1072,7 @@ body.full-width .page-header__inner {
 
 .req-dropdown__close .material-symbols-outlined {
     font-size: 1rem;
-    color: #888;
+    color: #444;
 }
 
 .req-dropdown__option {
