@@ -300,7 +300,7 @@
         padding: 0.375rem 0.5rem;
         border: 1.5px solid rgba(7, 67, 75, 0.12);
         border-radius: 0.5rem;
-        background: rgba(255, 255, 255, 0.4);
+        background: #fff;
         font-family: inherit;
         font-size: 0.8rem;
         color: #333;
@@ -605,7 +605,7 @@
         padding: 0.4rem 0.5rem;
         border: 2px solid rgba(255, 255, 255, 0.4);
         border-radius: 0.5rem;
-        background: rgba(255, 255, 255, 0.35);
+        background: #fff;
         font-family: inherit;
         font-size: 0.8rem;
         color: #333;
