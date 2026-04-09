@@ -905,7 +905,9 @@ th {
    REQUISITION DETAIL PAGE
    ══════════════════════════════════════════ */
 
-.rd-meta {
+.rd-meta,
+.rd-sidebar,
+.rd-product-list {
     background: rgba(255, 255, 255, 0.05) !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
 }
@@ -952,12 +954,8 @@ th {
 }
 
 /* ── Standard product rows ── */
-.rd-std-row {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-}
 .rd-std-row:hover {
-    background: rgba(255, 255, 255, 0.09) !important;
+    background: rgba(255, 255, 255, 0.06) !important;
 }
 .rd-std-row__artno {
     color: #6dd5c3 !important;
@@ -1012,6 +1010,44 @@ th {
 }
 .rd-compact__expand-value {
     color: #c8d6d9 !important;
+}
+
+/* ── Sidebar ── */
+.rd-sidebar__heading {
+    color: #7a9098 !important;
+}
+.rd-sidebar__status-text {
+    color: #d4d4d4 !important;
+}
+.rd-sidebar__hint {
+    color: #7a9098 !important;
+}
+.rd-sidebar__divider {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+.rd-sidebar__dl dt {
+    color: #7a9098 !important;
+}
+.rd-sidebar__dl dd {
+    color: #c8d6d9 !important;
+}
+.rd-sidebar__step-label {
+    color: #c8d6d9 !important;
+}
+.rd-sidebar__step--current .rd-sidebar__step-label {
+    color: #6dd5c3 !important;
+}
+.rd-sidebar__step--current .rd-sidebar__step-icon {
+    color: #6dd5c3 !important;
+}
+.rd-sidebar__step-icon {
+    color: #7a9098 !important;
+}
+.rd-sidebar__step-meta {
+    color: #7a9098 !important;
+}
+.rd-sidebar__step::before {
+    background: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* ── Totals ── */

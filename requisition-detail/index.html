@@ -101,45 +101,109 @@
             <main class="rd-page">
                 <!-- Tab: Detaljer -->
                 <div class="rd-tab-content" id="tab-detaljer">
-                    <!-- Metadata form — compact -->
-                    <form class="rd-meta" id="rd-form">
-                        <details class="rd-meta__details" open>
-                            <summary class="rd-meta__summary">
-                                <span class="rd-meta__summary-text">Rekvisisjonsinformasjon</span>
-                                <span class="material-symbols-outlined rd-meta__chevron">expand_more</span>
-                            </summary>
-                            <div class="rd-meta__grid">
-                                <div class="rd-field">
-                                    <label class="rd-field__label" for="field-rekvirent">Rekvirent</label>
-                                    <input class="rd-field__input" type="text" id="field-rekvirent" value="Mikkel Eltervåg" />
+                    <!-- Top section: form + sidebar -->
+                    <div class="rd-detail-top">
+                        <!-- Metadata form — compact -->
+                        <form class="rd-meta" id="rd-form">
+                            <details class="rd-meta__details" open>
+                                <summary class="rd-meta__summary">
+                                    <span class="rd-meta__summary-text">Rekvisisjonsinformasjon</span>
+                                    <span class="material-symbols-outlined rd-meta__chevron">expand_more</span>
+                                </summary>
+                                <div class="rd-meta__grid">
+                                    <div class="rd-field">
+                                        <label class="rd-field__label" for="field-rekvirent">Rekvirent</label>
+                                        <input class="rd-field__input" type="text" id="field-rekvirent" value="Mikkel Eltervåg" />
+                                    </div>
+                                    <div class="rd-field">
+                                        <label class="rd-field__label" for="field-varemottaker">Varemottaker</label>
+                                        <input class="rd-field__input" type="text" id="field-varemottaker" value="Lager Oslo, Drammensveien 42" />
+                                    </div>
+                                    <div class="rd-field">
+                                        <label class="rd-field__label" for="field-leveringsdato">Ønsket leveringsdato</label>
+                                        <input class="rd-field__input" type="date" id="field-leveringsdato" value="2026-03-28" />
+                                    </div>
+                                    <div class="rd-field">
+                                        <label class="rd-field__label" for="field-leveringsadresse">Leveringsadresse</label>
+                                        <input class="rd-field__input" type="text" id="field-leveringsadresse" value="Drammensveien 42, 0271 Oslo" />
+                                    </div>
+                                    <div class="rd-field">
+                                        <label class="rd-field__label" for="field-tilbudsreferanse">Tilbudsreferanse</label>
+                                        <input class="rd-field__input" type="text" id="field-tilbudsreferanse" value="TIL-2024-1158" />
+                                    </div>
+                                    <div class="rd-field rd-field--full">
+                                        <label class="rd-field__label" for="field-beskrivelse">Beskrivelse</label>
+                                        <textarea class="rd-field__input rd-field__textarea" id="field-beskrivelse" rows="1">Kvartalsvis bestilling av kontorrekvisita og renholdsartikler for hovedkontoret. Gjelder Q2 2026.</textarea>
+                                    </div>
+                                    <div class="rd-field rd-field--full">
+                                        <label class="rd-field__label" for="field-notat">Internt notat</label>
+                                        <textarea class="rd-field__input rd-field__textarea" id="field-notat" rows="1">Husk å sjekke lagerbeholdning for renholdsartikler før godkjenning.</textarea>
+                                    </div>
                                 </div>
-                                <div class="rd-field">
-                                    <label class="rd-field__label" for="field-varemottaker">Varemottaker</label>
-                                    <input class="rd-field__input" type="text" id="field-varemottaker" value="Lager Oslo, Drammensveien 42" />
+                            </details>
+                        </form>
+
+                        <!-- Summary sidebar -->
+                        <aside class="rd-sidebar">
+                            <div class="rd-sidebar__section">
+                                <h3 class="rd-sidebar__heading">Status</h3>
+                                <div class="rd-sidebar__status">
+                                    <span class="rd-sidebar__status-dot rd-sidebar__status-dot--draft"></span>
+                                    <span class="rd-sidebar__status-text">Kladd</span>
                                 </div>
-                                <div class="rd-field">
-                                    <label class="rd-field__label" for="field-leveringsdato">Ønsket leveringsdato</label>
-                                    <input class="rd-field__input" type="date" id="field-leveringsdato" value="2026-03-28" />
-                                </div>
-                                <div class="rd-field">
-                                    <label class="rd-field__label" for="field-leveringsadresse">Leveringsadresse</label>
-                                    <input class="rd-field__input" type="text" id="field-leveringsadresse" value="Drammensveien 42, 0271 Oslo" />
-                                </div>
-                                <div class="rd-field">
-                                    <label class="rd-field__label" for="field-tilbudsreferanse">Tilbudsreferanse</label>
-                                    <input class="rd-field__input" type="text" id="field-tilbudsreferanse" value="TIL-2024-1158" />
-                                </div>
-                                <div class="rd-field rd-field--full">
-                                    <label class="rd-field__label" for="field-beskrivelse">Beskrivelse</label>
-                                    <textarea class="rd-field__input rd-field__textarea" id="field-beskrivelse" rows="1">Kvartalsvis bestilling av kontorrekvisita og renholdsartikler for hovedkontoret. Gjelder Q2 2026.</textarea>
-                                </div>
-                                <div class="rd-field rd-field--full">
-                                    <label class="rd-field__label" for="field-notat">Internt notat</label>
-                                    <textarea class="rd-field__input rd-field__textarea" id="field-notat" rows="1">Husk å sjekke lagerbeholdning for renholdsartikler før godkjenning.</textarea>
-                                </div>
+                                <p class="rd-sidebar__hint">Ikke sendt til godkjenning ennå</p>
                             </div>
-                        </details>
-                    </form>
+                            <div class="rd-sidebar__divider"></div>
+                            <div class="rd-sidebar__section">
+                                <h3 class="rd-sidebar__heading">Detaljer</h3>
+                                <dl class="rd-sidebar__dl">
+                                    <dt>Opprettet</dt>
+                                    <dd>12.03.2026</dd>
+                                    <dt>Sist endret</dt>
+                                    <dd>08.04.2026</dd>
+                                    <dt>Opprettet av</dt>
+                                    <dd>Mikkel Eltervåg</dd>
+                                    <dt>Avdeling</dt>
+                                    <dd>Administrasjon</dd>
+                                    <dt>Selskap</dt>
+                                    <dd>Vieri Holding AS</dd>
+                                </dl>
+                            </div>
+                            <div class="rd-sidebar__divider"></div>
+                            <div class="rd-sidebar__section">
+                                <h3 class="rd-sidebar__heading">Godkjenningsflyt</h3>
+                                <ol class="rd-sidebar__steps">
+                                    <li class="rd-sidebar__step rd-sidebar__step--current">
+                                        <span class="rd-sidebar__step-icon material-symbols-outlined">edit</span>
+                                        <div>
+                                            <span class="rd-sidebar__step-label">Kladd</span>
+                                            <span class="rd-sidebar__step-meta">Nåværende steg</span>
+                                        </div>
+                                    </li>
+                                    <li class="rd-sidebar__step">
+                                        <span class="rd-sidebar__step-icon material-symbols-outlined">verified</span>
+                                        <div>
+                                            <span class="rd-sidebar__step-label">Leder-godkjenning</span>
+                                            <span class="rd-sidebar__step-meta">Anne Kristiansen</span>
+                                        </div>
+                                    </li>
+                                    <li class="rd-sidebar__step">
+                                        <span class="rd-sidebar__step-icon material-symbols-outlined">account_balance</span>
+                                        <div>
+                                            <span class="rd-sidebar__step-label">Økonomi</span>
+                                            <span class="rd-sidebar__step-meta">Budsjett-kontroll</span>
+                                        </div>
+                                    </li>
+                                    <li class="rd-sidebar__step">
+                                        <span class="rd-sidebar__step-icon material-symbols-outlined">send</span>
+                                        <div>
+                                            <span class="rd-sidebar__step-label">Bestilling sendt</span>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </aside>
+                    </div>
 
                     <!-- Products + totals block -->
                     <div class="rd-products">
