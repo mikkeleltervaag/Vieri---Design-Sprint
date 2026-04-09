@@ -107,12 +107,14 @@ function initThemeSwitcher() {
             <input type="checkbox" class="theme-dropdown__toggle" data-target="color1">
             <span>Egendefinert bakgrunn</span>
         </label>
-        <input type="color" class="theme-dropdown__color-input" data-id="color1" value="#c2ede4" title="Bakgrunnsfarge" disabled>
+        <input type="color" class="theme-dropdown__color-input" data-id="color1" value="#a3e1d4" title="Bakgrunnsfarge" disabled>
+        <span class="theme-dropdown__hex-label" data-for="color1">#a3e1d4</span>
         <label class="theme-dropdown__checkbox-row">
             <input type="checkbox" class="theme-dropdown__toggle" data-target="color2">
             <span>Gradient (farge 2)</span>
         </label>
         <input type="color" class="theme-dropdown__color-input" data-id="color2" value="#f6eaf6" title="Gradient farge 2" disabled>
+        <span class="theme-dropdown__hex-label" data-for="color2">#f6eaf6</span>
     `
     userBtn.parentElement.appendChild(dropdown)
 
@@ -152,8 +154,17 @@ function initThemeSwitcher() {
         applyCustomBackground()
     })
 
-    color1.addEventListener("input", applyCustomBackground)
-    color2.addEventListener("input", applyCustomBackground)
+    const hexLabel1 = dropdown.querySelector('[data-for="color1"]')
+    const hexLabel2 = dropdown.querySelector('[data-for="color2"]')
+
+    color1.addEventListener("input", () => {
+        hexLabel1.textContent = color1.value
+        applyCustomBackground()
+    })
+    color2.addEventListener("input", () => {
+        hexLabel2.textContent = color2.value
+        applyCustomBackground()
+    })
 
     // Apply saved theme
     const saved = localStorage.getItem("vieri-theme") || "ny-standard"

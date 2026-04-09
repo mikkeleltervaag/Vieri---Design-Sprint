@@ -79,6 +79,20 @@
     margin: 0;
 }
 
+.theme-dropdown__hex-label {
+    display: block;
+    font-size: 0.7rem;
+    font-family: monospace;
+    color: #666;
+    text-align: center;
+    margin: -0.125rem 0 0.25rem;
+    user-select: all;
+}
+
+.theme-dropdown__color-input:disabled + .theme-dropdown__hex-label {
+    opacity: 0.35;
+}
+
 .theme-dropdown__color-input:disabled {
     opacity: 0.35;
     pointer-events: none;
